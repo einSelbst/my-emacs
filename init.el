@@ -1,6 +1,13 @@
 ;; einSelbst emacs init file
 ;; https://github.com/einSelbst/my-emacs
 
+;; load dedicated custom.el
+;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#load-customel
+
+(setq-default custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 ;; straight.el package manager
 ;; https://github.com/raxod502/straight.el
 

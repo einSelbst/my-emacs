@@ -10,5 +10,8 @@
 # Undo-tree save-files
 *.~undo-tree
 
+# restoring state
+places
+
 # package manager straight.el folder
 straight/
