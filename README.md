@@ -45,3 +45,7 @@ https://github.com/plexus/chemacs
 
 I have this setup already but add a new profile which
 is basically this Github repo.
+
+## Package Manager
+
+https://github.com/raxod502/straight.el
