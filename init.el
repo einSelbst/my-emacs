@@ -1,0 +1,1 @@
+;; einSelbst emacs init file 
