@@ -38,3 +38,10 @@ To have launchd start daviderestivo/emacs-head/emacs-head now and restart at log
 Or, if you don't want/need a background service you can just run:
   emacs
 ```
+
+## Emacs Profile Switcher
+
+https://github.com/plexus/chemacs
+
+I have this setup already but add a new profile which
+is basically this Github repo.
