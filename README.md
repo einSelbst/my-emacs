@@ -49,3 +49,12 @@ is basically this Github repo.
 ## Package Manager
 
 https://github.com/raxod502/straight.el
+
+## Startup Profiling
+
+https://github.com/jschaf/esup
+
+Usage `M-x esup`
+
+Total User Startup Time: 0.100sec     Total Number of GC Pauses: 2     Total GC Time: 0.026sec
+Total User Startup Time: 0.093sec     Total Number of GC Pauses: 2     Total GC Time: 0.028sec
