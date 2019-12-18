@@ -80,3 +80,12 @@
 ;; setup use-package
 
 (straight-use-package 'use-package)
+
+;; remember open buffers
+
+;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#buffers-and-windows
+(use-package desktop
+  :hook
+  (after-init . desktop-read)
+  (after-init . desktop-save-mode)
+  )
