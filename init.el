@@ -11,6 +11,21 @@
 ;; straight.el package manager
 ;; https://github.com/raxod502/straight.el
 
+(setq
+ ;; load-prefer-newer t
+ ;; straight-repository-branch "develop"
+ ;; straight-check-for-modifications '(find-when-checking)
+ straight-use-package-by-default t
+ ;; straight-cache-autoloads t
+ ;; straight-treat-as-init t
+ use-package-always-defer t
+ use-package-always-ensure t
+ ;; use-package-expand-minimally t
+ use-package-verbose t
+ use-package-compute-statistics t
+ ;; debug-on-error t
+ )
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -25,3 +40,7 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'esup)
+
+;; setup use-package
+
+(straight-use-package 'use-package)
