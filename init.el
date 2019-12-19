@@ -32,7 +32,8 @@
  
  custom-file (expand-file-name "custom.el" user-emacs-directory))  ; load dedicated custom.el
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#load-customel
-(when (file-exists-p custom-file)(load custom-file))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 (cd "~/")                                         ; Move to the user directory
 (delete-selection-mode 1)                         ; Replace region when inserting text
@@ -43,8 +44,11 @@
 (put 'upcase-region 'disabled nil)                ; Enable upcase-region
 (set-default-coding-systems 'utf-8)               ; Default to utf-8 encoding
 
+;; https://emacs.stackexchange.com/a/437/16535
+(defun display-startup-echo-area-message ()
+  (message "Wheater you think you can do it or not, you'll always be right!"))
 
-;; straight.el package manager
+;; setup straight.el package manager
 ;; https://github.com/raxod502/straight.el
 
 (setq
