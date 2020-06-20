@@ -93,3 +93,12 @@
   (after-init . desktop-read)
   (after-init . desktop-save-mode)
   )
+
+;; save history
+;; https://github.com/sboosali/.emacs.d/blob/master/sboo/configuration/10-internal-packages/sboo-savehist.el
+;; https://github.com/fasciism/dot-emacs/blob/master/2017-01-13-remembering-history.org
+
+(use-package savehist
+  :hook
+  (after-init . savehist-mode)
+  )

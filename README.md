@@ -66,6 +66,11 @@ Using a custom file for this to not litter the init file.
 Total User Startup Time: 0.233sec     Total Number of GC Pauses: 3     Total GC Time: 0.041sec
 Total User Startup Time: 0.232sec     Total Number of GC Pauses: 3     Total GC Time: 0.045sec
 
+## Persistency
+
+- desktop save mode
+- savehist
+
 # use-package cheat sheet
 
 ```elisp

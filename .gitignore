@@ -12,6 +12,7 @@
 
 # restoring state
 places
+history
 
 # package manager straight.el folder
 straight/
