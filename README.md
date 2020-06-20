@@ -71,6 +71,9 @@ Total User Startup Time: 0.232sec     Total Number of GC Pauses: 3     Total GC 
 - desktop save mode
 - savehist
 
+## Locomotion
+
+- windmove
 # use-package cheat sheet
 
 ```elisp

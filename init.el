@@ -102,3 +102,19 @@
   :hook
   (after-init . savehist-mode)
   )
+
+(use-package windmove
+  :init
+  (windmove-default-keybindings)
+  :config
+  ;; use command key on Mac
+  ;; (windmove-default-keybindings 'super)
+  ;; wrap around at edges
+  (setq windmove-wrap-around t)
+  ;; (general-define-key
+  ;;  "<left>" 'windmove-left
+  ;;  "<right>" 'windmove-right
+  ;;  "<up>" 'windmove-up
+  ;;  "<down>" 'windmove-down
+  ;;  )
+  )
