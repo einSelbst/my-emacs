@@ -8,6 +8,7 @@
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(tsdh-dark))
  '(global-display-line-numbers-mode t)
+ '(safe-local-variable-values '((flycheck-disabled-checkers emacs-lisp-checkdoc)))
  '(save-place-mode t)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
