@@ -27,9 +27,10 @@
  show-trailing-whitespace nil                     ; Display trailing whitespaces
  tab-width 4                                      ; Set width for tabs
  uniquify-buffer-name-style 'forward              ; Uniquify buffer names
+ visible-bell t                                   ; Do not emit noise
  window-combination-resize t                      ; Resize windows proportionally
  x-stretch-cursor t                               ; Stretch cursor to the glyph width
- 
+
  custom-file (expand-file-name "custom.el" user-emacs-directory))  ; load dedicated custom.el
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#load-customel
 (when (file-exists-p custom-file)
@@ -38,7 +39,11 @@
 (cd "~/")                                         ; Move to the user directory
 (delete-selection-mode 1)                         ; Replace region when inserting text
 (fset 'yes-or-no-p 'y-or-n-p)                     ; Replace yes/no prompts with y/n
+(global-auto-revert-mode 1)                       ; Always show the most recent version of a file
+(global-hl-line-mode 1)                           ; Highlight current line
 (global-subword-mode 1)                           ; Iterate through CamelCase words
+;; (global-visual-line-moode 1)                      ; Act on (wrapped) visual, not logical lines
+;; (global-highlight-changes-mode 1)
 (mouse-avoidance-mode 'banish)                    ; Avoid collision of mouse with point
 (put 'downcase-region 'disabled nil)              ; Enable downcase-region
 (put 'upcase-region 'disabled nil)                ; Enable upcase-region
