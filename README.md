@@ -78,6 +78,7 @@ Using a custom file for this to not litter the init file.
 ## Convenience
 
 - https://github.com/purcell/whitespace-cleanup-mode
+- https://github.com/emacscollective/auto-compile
 - helm?
 - ido?
 - maggit?

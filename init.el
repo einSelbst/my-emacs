@@ -110,6 +110,12 @@
   ;;(global-whitespace-cleanup-mode 1)
   )
 
+;;; Byte-compilation
+(setq load-prefer-newer t)
+(use-package auto-compile
+  :config
+  (auto-compile-on-save-mode))
+
 (use-package windmove
   :init
   (windmove-default-keybindings)
