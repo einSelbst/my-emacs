@@ -53,6 +53,28 @@
 (defun display-startup-echo-area-message ()
   (message "Wheater you think you can do it or not, you'll always be right!"))
 
+;; https://github.com/plexus/.emacs.d/blob/master/init.d/setup-emacs.el
+;; Save all backup file in this directory
+;; Write backup files to own directory
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
+
+(setq backup-by-copying t      ; don't clobber symlinks
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)       ; use versioned backups
+
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
+
+;; Do save #..# files
+(setq auto-save-default t)
+
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name (concat user-emacs-directory "autosave")) t)))
+
 ;; setup straight.el package manager
 ;; https://github.com/raxod502/straight.el
 
