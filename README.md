@@ -82,6 +82,10 @@ Using a custom file for this to not litter the init file.
 - helm?
 - ido?
 - maggit?
+
+## Language support
+
+- https://github.com/jrblevin/markdown-mode
 # use-package cheat sheet
 
 ```elisp
