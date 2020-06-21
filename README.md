@@ -86,6 +86,23 @@ Using a custom file for this to not litter the init file.
 ## Language support
 
 - https://github.com/jrblevin/markdown-mode
+
+# ToDo
+
+- https://www.emacswiki.org/emacs/EmacsClient
+- https://github.com/emacs-lsp/lsp-mode
+- https://patrickskiba.com/emacs/2019/09/07/emacs-for-react-dev.html
+
+# more ideas
+
+- https://github.com/emacs-tw/awesome-emacs
+- https://github.com/ACEMerlin/lain-emacs
+- from reddit https://www.reddit.com/r/emacs/comments/hbti7g/is_there_something_better_for_htmlcss_editing/
+  - https://emmet.io/
+  - https://github.com/veshboo/emacs/blob/master/lisp/textmodes/mhtml-mode.el
+  - https://emacs-lsp.github.io/lsp-mode/page/lsp-html/
+  - https://emacs-lsp.github.io/lsp-mode/page/lsp-css/
+
 # use-package cheat sheet
 
 ```elisp
@@ -214,3 +231,18 @@ Using a custom file for this to not litter the init file.
   :config
   (message "This is evaluated when `foo' is loaded"))
 ```
+
+# commands
+
+M-x describe-personal-keybindings to see all such keybindings you've set throughout your .emacs file
+C-h C-a more info about emacs, the start screen
+if you want to know why something is displayed in a particular color, put the cursor on it and type C-u C-x = (the command what-cursor-position with a prefix argument), which displays lots of information about whatever's under the cursor, including its current face.
+
+
+Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lain-emacs)
+- C-h k documentation for a key stroke
+- C-h f documentation for a function
+- C-h v documentation for a variable
+- C-h b list of all keybindings available in current buffer
+- C-h S search symbol in Emacs manual
+
