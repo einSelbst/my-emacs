@@ -103,6 +103,13 @@
   (after-init . savehist-mode)
   )
 
+(use-package whitespace-cleanup-mode
+  :diminish
+  :commands whitespace-cleanup-mode
+  ;;:config
+  ;;(global-whitespace-cleanup-mode 1)
+  )
+
 (use-package windmove
   :init
   (windmove-default-keybindings)
