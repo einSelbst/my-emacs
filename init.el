@@ -219,3 +219,8 @@
 (use-package which-key
   :config
   (which-key-mode))
+
+(use-package golden-ratio
+  :defer t
+  :config
+  (golden-ratio-mode 1))

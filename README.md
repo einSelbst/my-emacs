@@ -80,6 +80,7 @@ Using a custom file for this to not litter the init file.
 - https://github.com/purcell/whitespace-cleanup-mode
 - https://github.com/emacscollective/auto-compile
 - https://github.com/justbur/emacs-which-key/
+- https://github.com/roman/golden-ratio.el
 - helm?
 - ido?
 - maggit?
