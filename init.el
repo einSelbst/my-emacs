@@ -70,9 +70,13 @@
 (setq vc-make-backup-files t)
 
 ;; Do save #..# files
-(setq auto-save-default t)
-
-(setq auto-save-file-name-transforms
+(setq auto-save-default t               ; auto-save every buffer that visits a file
+      auto-save-timeout 20              ; number of seconds idle time before auto-save (default: 30)
+      auto-save-interval 200            ; number of keystrokes between auto-saves (default: 300)
+      auto-save-visited-mode t
+      delete-auto-save-files t
+      create-lockfiles nil
+      auto-save-file-name-transforms
       `((".*" ,(expand-file-name (concat user-emacs-directory "autosave")) t)))
 
 ;; setup straight.el package manager
@@ -109,11 +113,10 @@
 (straight-use-package 'esup)
 
 ;; setup use-package
-
 (straight-use-package 'use-package)
 
-;; remember open buffers
 
+;; remember open buffers
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#buffers-and-windows
 (use-package desktop
   :hook
@@ -128,20 +131,22 @@
 (use-package savehist
   :hook
   (after-init . savehist-mode)
-  )
-
-(use-package whitespace-cleanup-mode
-  :diminish
-  :commands whitespace-cleanup-mode
-  ;;:config
-  ;;(global-whitespace-cleanup-mode 1)
-  )
-
-;;; Byte-compilation
-(setq load-prefer-newer t)
-(use-package auto-compile
+  :defer 1
   :config
-  (auto-compile-on-save-mode))
+  (setq-default savehist-file (concat user-emacs-directory "savehist"))
+  (when (not (file-exists-p savehist-file))
+    (write-file savehist-file))
+  (setq savehist-save-minibuffer-history t)
+  (setq history-delete-duplicates t)
+  (setq history-length 100)
+  (put 'minibuffer-history 'history-length 50)
+  (put 'evil-ex-history 'history-length 50)
+  (put 'kill-ring 'history-length 25))
+
+;; not sure if I need this
+(use-package focus-autosave-mode
+  :init (focus-autosave-mode)
+  :diminish focus-autosave-mode)
 
 (use-package windmove
   :init
@@ -158,6 +163,52 @@
   ;;  "<down>" 'windmove-down
   ;;  )
   )
+
+;; https://batsov.com/articles/2012/03/08/emacs-tip-number-5-save-buffers-automatically-on-buffer-or-window-switch/
+;; automatically save buffers associated with files on buffer switch
+;; and on windows switch
+(defadvice switch-to-buffer (before save-buffer-now activate)
+  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
+(defadvice other-window (before other-window-now activate)
+  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
+(defadvice windmove-up (before other-window-now activate)
+  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
+(defadvice windmove-down (before other-window-now activate)
+  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
+(defadvice windmove-left (before other-window-now activate)
+  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
+(defadvice windmove-right (before other-window-now activate)
+  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
+
+;; saves the buffers if I de-focus emacs completely (moving to another screen)
+(add-hook 'focus-out-hook
+          (lambda () (flet ((message
+                             (format &rest args) nil))
+                           (save-some-buffers t))))
+
+;; Make windmove work in Org mode: (untested but left here)
+(use-package org
+  :config
+  (setq org-replace-disputed-keys t)
+  (setq org-log-done 'time)
+  )
+
+
+(use-package whitespace-cleanup-mode
+  :diminish
+  :commands whitespace-cleanup-mode
+  ;;:config
+  ;;(global-whitespace-cleanup-mode 1)
+  )
+
+;;; Byte-compilation
+(setq load-prefer-newer t)
+(use-package auto-compile
+  :config
+  (auto-compile-on-save-mode))
+
+
+
 
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
