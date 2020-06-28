@@ -65,6 +65,9 @@ Total User Startup Time: 0.232sec     Total Number of GC Pauses: 3     Total GC 
 
 Using a custom file for this to not litter the init file.
 
+### Fixing wrong PATH on osx
+
+- https://github.com/purcell/exec-path-from-shell
 
 ## Persistency
 

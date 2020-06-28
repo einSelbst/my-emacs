@@ -116,6 +116,17 @@
 (straight-use-package 'use-package)
 
 
+;; Use same paths as user environment on macOS
+(use-package exec-path-from-shell
+  :if (eq system-type 'darwin)
+  :custom
+  (exec-path-from-shell-check-startup-files nil)
+  (exec-path-from-shell-variables '("PATH"
+                                    "MANPATH"))
+  :init
+  (exec-path-from-shell-initialize))
+
+
 ;; remember open buffers
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#buffers-and-windows
 (use-package desktop
