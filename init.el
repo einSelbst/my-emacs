@@ -48,6 +48,7 @@
 (put 'downcase-region 'disabled nil)         ; Enable downcase-region
 (put 'upcase-region 'disabled nil)           ; Enable upcase-region
 (set-default-coding-systems 'utf-8)          ; Default to utf-8 encoding
+(setq case-fold-search t)                    ; case insensitive search
 
 ;; fix dired
 (when (eq system-type 'darwin)
