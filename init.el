@@ -205,6 +205,14 @@
   :config
   (which-key-mode))
 
+
+(use-package yasnippet
+  :config
+  (yas-reload-all)
+  )
+
+(require 'init-lsp)
+
 (use-package golden-ratio
   :defer t
   :config

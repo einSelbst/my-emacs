@@ -93,11 +93,11 @@ Using a custom file for this to not litter the init file.
 ## Language support
 
 - https://github.com/jrblevin/markdown-mode
+- https://emacs-lsp.github.io/lsp-mode/
 
 # ToDo
 
 - https://www.emacswiki.org/emacs/EmacsClient
-- https://github.com/emacs-lsp/lsp-mode
 - https://patrickskiba.com/emacs/2019/09/07/emacs-for-react-dev.html
 
 # more ideas
