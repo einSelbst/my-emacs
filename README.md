@@ -84,6 +84,7 @@ Using a custom file for this to not litter the init file.
 - https://github.com/emacscollective/auto-compile
 - https://github.com/justbur/emacs-which-key/
 - https://github.com/roman/golden-ratio.el
+- Ivy/Counsel/Swiper https://dev.to/deciduously/how-i-emacs-and-so-can-you-packages-m9p
 - helm?
 - ido?
 - maggit?
@@ -243,7 +244,6 @@ M-x describe-personal-keybindings to see all such keybindings you've set through
 C-h C-a more info about emacs, the start screen
 if you want to know why something is displayed in a particular color, put the cursor on it and type C-u C-x = (the command what-cursor-position with a prefix argument), which displays lots of information about whatever's under the cursor, including its current face.
 
-
 Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lain-emacs)
 - C-h k documentation for a key stroke
 - C-h f documentation for a function
@@ -251,3 +251,20 @@ Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lai
 - C-h b list of all keybindings available in current buffer
 - C-h S search symbol in Emacs manual
 
+### from counsel
+
+("M-x"     . counsel-M-x)
+("C-s"     . swiper)
+("C-x C-f" . counsel-find-file)
+("C-x C-r" . counsel-recentf)  ; search for recently edited
+("C-c g"   . counsel-git)      ; search for files in git repo
+("C-c j"   . counsel-git-grep) ; search for regexp in git repo
+("C-c /"   . counsel-ag)       ; Use ag for regexp
+("C-x l"   . counsel-locate)
+("C-x C-f" . counsel-find-file)
+("<f1> f"  . counsel-describe-function)
+("<f1> v"  . counsel-describe-variable)
+("<f1> l"  . counsel-find-library)
+("<f2> i"  . counsel-info-lookup-symbol)
+("<f2> u"  . counsel-unicode-char)
+("C-c C-r" . ivy-resume)       ; Resume last Ivy-based completion

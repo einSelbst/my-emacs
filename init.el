@@ -223,7 +223,10 @@
   :config
   (auto-compile-on-save-mode))
 
+;; Pull in ./config/*
+(add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
+(require 'init-ivy)
 
 
 (use-package markdown-mode
