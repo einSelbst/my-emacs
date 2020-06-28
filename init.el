@@ -147,7 +147,6 @@
 (use-package savehist
   :hook
   (after-init . savehist-mode)
-  :defer 1
   :config
   (setq-default savehist-file (concat user-emacs-directory "savehist"))
   (when (not (file-exists-p savehist-file))
@@ -164,43 +163,6 @@
   :init (focus-autosave-mode)
   :diminish focus-autosave-mode)
 
-(use-package windmove
-  :init
-  (windmove-default-keybindings)
-  :config
-  ;; use command key on Mac
-  ;; (windmove-default-keybindings 'super)
-  ;; wrap around at edges
-  (setq windmove-wrap-around t)
-  ;; (general-define-key
-  ;;  "<left>" 'windmove-left
-  ;;  "<right>" 'windmove-right
-  ;;  "<up>" 'windmove-up
-  ;;  "<down>" 'windmove-down
-  ;;  )
-  )
-
-;; https://batsov.com/articles/2012/03/08/emacs-tip-number-5-save-buffers-automatically-on-buffer-or-window-switch/
-;; automatically save buffers associated with files on buffer switch
-;; and on windows switch
-(defadvice switch-to-buffer (before save-buffer-now activate)
-  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
-(defadvice other-window (before other-window-now activate)
-  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
-(defadvice windmove-up (before other-window-now activate)
-  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
-(defadvice windmove-down (before other-window-now activate)
-  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
-(defadvice windmove-left (before other-window-now activate)
-  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
-(defadvice windmove-right (before other-window-now activate)
-  (when (and buffer-file-name (buffer-modified-p)) (save-buffer)))
-
-;; saves the buffers if I de-focus emacs completely (moving to another screen)
-(add-hook 'focus-out-hook
-          (lambda () (flet ((message
-                             (format &rest args) nil))
-                           (save-some-buffers t))))
 
 ;; Make windmove work in Org mode: (untested but left here)
 (use-package org
@@ -217,23 +179,26 @@
   ;;(global-whitespace-cleanup-mode 1)
   )
 
+
 ;;; Byte-compilation
 (setq load-prefer-newer t)
 (use-package auto-compile
   :config
   (auto-compile-on-save-mode))
 
+
 ;; Pull in ./config/*
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
+(require 'init-windmove)
 (require 'init-ivy)
-
 
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
 
 (use-package which-key
   :config
