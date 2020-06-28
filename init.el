@@ -49,6 +49,10 @@
 (put 'upcase-region 'disabled nil)           ; Enable upcase-region
 (set-default-coding-systems 'utf-8)          ; Default to utf-8 encoding
 
+;; fix dired
+(when (eq system-type 'darwin)
+  (setq dired-use-ls-dired nil))
+
 ;; https://emacs.stackexchange.com/a/437/16535
 (defun display-startup-echo-area-message ()
   (message "Wheater you think you can do it or not, you'll always be right!"))
