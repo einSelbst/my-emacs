@@ -85,6 +85,7 @@ Using a custom file for this to not litter the init file.
 - https://github.com/justbur/emacs-which-key/
 - https://github.com/roman/golden-ratio.el
 - Ivy/Counsel/Swiper https://dev.to/deciduously/how-i-emacs-and-so-can-you-packages-m9p
+- Company
 - helm?
 - ido?
 - maggit?

@@ -192,6 +192,7 @@
 
 (require 'init-windmove)
 (require 'init-ivy)
+(require 'init-company)
 
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
