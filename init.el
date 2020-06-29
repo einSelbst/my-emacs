@@ -219,3 +219,12 @@
   :defer t
   :config
   (golden-ratio-mode 1))
+
+(use-package flycheck
+  :defer t
+ ;; :diminish
+  :init (global-flycheck-mode)
+  :custom
+  (flycheck-display-errors-delay .3)
+  ;;(flycheck-stylelintrc "~/.stylelintrc.json")
+  )

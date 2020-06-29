@@ -95,6 +95,10 @@ Using a custom file for this to not litter the init file.
 - https://github.com/jrblevin/markdown-mode
 - https://emacs-lsp.github.io/lsp-mode/
 
+- flycheck
+  - https://www.flycheck.org/en/latest/index.html
+  - https://www.reddit.com/r/emacs/comments/931la6/tip_how_to_adopt_flycheck_as_your_new_best_friend/
+
 # ToDo
 
 - https://www.emacswiki.org/emacs/EmacsClient
