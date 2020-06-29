@@ -132,6 +132,11 @@
   :init
   (exec-path-from-shell-initialize))
 
+(use-package async
+  :init
+  (dired-async-mode
+   async-bytecomp-package-mode)
+  )
 
 ;; remember open buffers
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#buffers-and-windows
