@@ -240,3 +240,15 @@
   (setq git-commit-summary-max-length 50)
   :bind
   ("M-g" . magit-status))
+
+(use-package all-the-icons)
+
+(use-package zerodark-theme
+;;  :after (all-the-icons flycheck magit)
+  :init (load-theme 'zerodark t)
+  :config
+  (zerodark-setup-modeline-format)
+  )
+
+(provide 'init)
+;;; init.el ends here

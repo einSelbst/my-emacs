@@ -6,7 +6,9 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes '(tsdh-dark))
+ '(custom-enabled-themes '(zerodark))
+ '(custom-safe-themes
+   '("846ef3695c42d50347884515f98cc359a7a61b82a8d0c168df0f688cf54bf089" default))
  '(global-display-line-numbers-mode t)
  '(safe-local-variable-values '((flycheck-disabled-checkers emacs-lisp-checkdoc)))
  '(save-place-mode t)
