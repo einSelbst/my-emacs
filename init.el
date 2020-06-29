@@ -1,4 +1,6 @@
-;; einSelbst emacs init file
+;;; package init - Summary,
+;;; Commentary:
+;; einSelbst Emacs init file
 ;; https://github.com/einSelbst/my-emacs
 
 ;; set defaults
@@ -92,7 +94,7 @@
  ;; straight-repository-branch "develop"
  ;; straight-check-for-modifications '(find-when-checking)
  straight-use-package-by-default t
- ;; straight-cache-autoloads t
+ straight-cache-autoloads t
  ;; straight-treat-as-init t
  use-package-always-defer t
  use-package-always-ensure t
@@ -126,8 +128,7 @@
   :if (eq system-type 'darwin)
   :custom
   (exec-path-from-shell-check-startup-files nil)
-  (exec-path-from-shell-variables '("PATH"
-                                    "MANPATH"))
+  (exec-path-from-shell-variables '("PATH" "MANPATH"))
   :init
   (exec-path-from-shell-initialize))
 
@@ -208,8 +209,9 @@
 
 (use-package yasnippet
   :config
-  (yas-reload-all)
-  )
+;;  (use-package yasnippet-snippets)
+  (yas-reload-all))
+
 
 (require 'init-lsp)
 

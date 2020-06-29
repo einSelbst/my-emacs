@@ -14,7 +14,10 @@
         company-idle-delay 0.0
         company-minimum-prefix-length 1
         company-tooltip-limit 10
-        company-show-numbers 'left))
+        company-show-numbers 'left
+        ;; global-company-mode 1
+        ;; global-set-key (kbd "C-<tab>") 'company-complete
+        ))
 
 (provide 'init-company)
 ;;; init-company.el ends here.

@@ -103,12 +103,29 @@ Using a custom file for this to not litter the init file.
 # more ideas
 
 - https://github.com/emacs-tw/awesome-emacs
+- https://github.com/Wilfred/helpful
 - https://github.com/ACEMerlin/lain-emacs
+- https://github.com/emacscollective/no-littering
+
+- https://github.com/daedreth/UncleDavesEmacs
+
 - from reddit https://www.reddit.com/r/emacs/comments/hbti7g/is_there_something_better_for_htmlcss_editing/
   - https://emmet.io/
   - https://github.com/veshboo/emacs/blob/master/lisp/textmodes/mhtml-mode.el
   - https://emacs-lsp.github.io/lsp-mode/page/lsp-html/
   - https://emacs-lsp.github.io/lsp-mode/page/lsp-css/
+
+MacOS Dark Mode detection
+- https://github.com/daviderestivo/homebrew-emacs-head#system-appearance-change-support
+- https://www.reddit.com/r/emacs/comments/h9zoy9/weekly_tipstricketc_thread/fuzucay/
+
+- https://www.emacswiki.org/emacs/GotoChg
+- emmet
+  - https://github.com/madintist/emacs-config/blob/e21d3b2127c6946bbc9835728e264b88083bd55b/.emacs.d/config/packages/emmet.el
+
+- js-2, rjsx & lsp https://github.com/markx/emacs.d/blob/4bb3dd529647880e6ee399cb8c45d840d672d6d8/config/init-js.el
+
+
 
 # use-package cheat sheet
 
@@ -269,3 +286,9 @@ Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lai
 ("<f2> i"  . counsel-info-lookup-symbol)
 ("<f2> u"  . counsel-unicode-char)
 ("C-c C-r" . ivy-resume)       ; Resume last Ivy-based completion
+
+
+## Troubleshooting
+
+`M-x package-refresh-contents`   if a package won't be loaded
+`M-x flycheck-verify-setup`
