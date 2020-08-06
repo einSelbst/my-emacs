@@ -56,32 +56,34 @@
  recenter-positions '(5 top bottom)          ; Set re-centering positions
  scroll-conservatively most-positive-fixnum  ; Always scroll by one line
  scroll-margin 10                            ; Add a margin when scrolling vertically
+ scroll-bar-mode -1                          ; don't show scroll bars
  select-enable-clipboard t                   ; Merge system's and Emacs' clipboard
  sentence-end-double-space nil               ; End a sentence after a dot and a space
  show-trailing-whitespace nil                ; Display trailing whitespaces
- tab-width 4                                 ; Set width for tabs
+ ;; tab-width 4                                 ; Set width for tabs
  uniquify-buffer-name-style 'forward         ; Uniquify buffer names
  visible-bell t                              ; Do not emit noise
  window-combination-resize t                 ; Resize windows proportionally
  x-stretch-cursor t                          ; Stretch cursor to the glyph width
-
  custom-file (expand-file-name "custom.el" user-emacs-directory))  ; load dedicated custom.el
+
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#load-customel
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(cd "~/")                                    ; Move to the user directory
-(delete-selection-mode 1)                    ; Replace region when inserting text
-(fset 'yes-or-no-p 'y-or-n-p)                ; Replace yes/no prompts with y/n
-(global-auto-revert-mode 1)                  ; Always show the most recent version of a file
-(global-hl-line-mode 1)                      ; Highlight current line
-(global-subword-mode 1)                      ; Iterate through CamelCase words
-;; (global-visual-line-moode 1)                 ; Act on (wrapped) visual, not logical lines
+(cd "~/")                           ; Move to the user directory
+(delete-selection-mode 1)           ; Replace region when inserting text
+(fset 'yes-or-no-p 'y-or-n-p)       ; Replace yes/no prompts with y/n
+(global-auto-revert-mode 1)         ; Always show the most recent version of a file
+(global-hl-line-mode 1)             ; Highlight current line
+(global-subword-mode 1)             ; Iterate through CamelCase words
+;; (global-visual-line-moode 1)     ; Act on (wrapped) visual, not logical lines
 ;; (global-highlight-changes-mode 1)
-(mouse-avoidance-mode 'banish)               ; Avoid collision of mouse with point
+(mouse-avoidance-mode 'banish)     ; Avoid collision of mouse with point
 (put 'downcase-region 'disabled nil)         ; Enable downcase-region
 (put 'upcase-region 'disabled nil)           ; Enable upcase-region
 (set-default-coding-systems 'utf-8)          ; Default to utf-8 encoding
+(transient-mark-mode t)                      ; Highlight active region
 (setq case-fold-search t)                    ; case insensitive search
 
 ;; fix dired
@@ -90,6 +92,7 @@
 
 ;; https://emacs.stackexchange.com/a/437/16535
 (defun display-startup-echo-area-message ()
+  "Always remember taking care of your thoughts."
   (message "Wheater you think you can do it or not, you'll always be right!"))
 
 ;; https://github.com/plexus/.emacs.d/blob/master/init.d/setup-emacs.el
@@ -121,21 +124,21 @@
 ;; setup straight.el package manager
 ;; https://github.com/raxod502/straight.el
 
+;; must be set before straight.el bootstrap runs
 (setq
  ;; load-prefer-newer t
- ;; straight-repository-branch "develop"
+ straight-repository-branch "develop"
  ;; straight-check-for-modifications '(find-when-checking)
  straight-use-package-by-default t
  straight-cache-autoloads t
  ;; straight-treat-as-init t
  use-package-always-defer t
- use-package-always-ensure t
+ ;; use-package-always-ensure t  ;; straight.el says this should be disabled
  ;; use-package-expand-minimally t
  use-package-verbose t
  use-package-compute-statistics t
  ;; debug-on-error t
  )
-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
