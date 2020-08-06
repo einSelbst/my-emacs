@@ -38,6 +38,8 @@
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 ;; (push (expand-file-name "config" user-emacs-directory) load-path)
 
+(require 'speed-up)
+
 ;; set defaults
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#use-better-defaults
 
