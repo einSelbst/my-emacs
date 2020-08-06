@@ -34,6 +34,9 @@
 
 ;;; Code:
 
+;; Pull in ./config/*
+(add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
+;; (push (expand-file-name "config" user-emacs-directory) load-path)
 
 ;; set defaults
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#use-better-defaults
