@@ -43,12 +43,10 @@ Or, if you don't want/need a background service you can just run:
 
 https://github.com/plexus/chemacs
 
-I have this setup already but add a new profile which
-is basically this Github repo.
-
 ## Package Manager
 
-https://github.com/raxod502/straight.el
+- https://github.com/raxod502/straight.el
+- use-package
 
 ## Startup Profiling
 

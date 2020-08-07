@@ -126,41 +126,8 @@
       auto-save-file-name-transforms
       `((".*" ,(expand-file-name (concat user-emacs-directory "autosave")) t)))
 
-;; setup straight.el package manager
-;; https://github.com/raxod502/straight.el
+(require 'setup-package-loading)
 
-;; must be set before straight.el bootstrap runs
-(setq
- ;; load-prefer-newer t
- straight-repository-branch "develop"
- ;; straight-check-for-modifications '(find-when-checking)
- straight-use-package-by-default t
- straight-cache-autoloads t
- ;; straight-treat-as-init t
- use-package-always-defer t
- ;; use-package-always-ensure t  ;; straight.el says this should be disabled
- ;; use-package-expand-minimally t
- use-package-verbose t
- use-package-compute-statistics t
- ;; debug-on-error t
- )
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(straight-use-package 'esup)
-
-;; setup use-package
-(straight-use-package 'use-package)
 
 
 ;; Use same paths as user environment on macOS
