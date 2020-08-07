@@ -212,11 +212,10 @@
 (require 'setup-treemacs)
 
 (use-package flycheck
-  :defer t
- ;; :diminish
   :init (global-flycheck-mode)
   :custom
   (flycheck-display-errors-delay .3)
+  (flycheck-emacs-lisp-load-path 'inherit)
   ;;(flycheck-stylelintrc "~/.stylelintrc.json")
   )
 
