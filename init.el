@@ -207,8 +207,15 @@
 ;; not sure if I need this
 (use-package focus-autosave-mode
   :init (focus-autosave-mode)
-  :diminish focus-autosave-mode)
+  :diminish
+  :commands focus-autosave-mode)
 
+;; https://zzamboni.org/post/my-emacs-configuration-with-commentary/
+(use-package midnight
+  :defer 3
+  :config
+  (setq midnight-period 7200)
+  (midnight-mode 1))
 
 ;; Make windmove work in Org mode: (untested but left here)
 (use-package org
