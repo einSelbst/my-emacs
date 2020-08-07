@@ -238,11 +238,6 @@
 (require 'init-lsp)
 (require 'setup-git)  ;; includes magit
 
-(use-package golden-ratio
-  :defer t
-  :config
-  (golden-ratio-mode 1))
-
 (use-package flycheck
   :defer t
  ;; :diminish
@@ -252,14 +247,8 @@
   ;;(flycheck-stylelintrc "~/.stylelintrc.json")
   )
 
-(use-package all-the-icons)
+(require 'setup-ui)
 
-(use-package zerodark-theme
-;;  :after (all-the-icons flycheck magit)
-  :init (load-theme 'zerodark t)
-  :custom
-  (zerodark-setup-modeline-format)
-  )
 
 (provide 'init)
 ;;; init.el ends here

@@ -56,13 +56,17 @@ https://github.com/jschaf/esup
 
 Usage `M-x esup`
 
-## Changing some default configs via menu
+## Configuration
 
-Using a custom file for this to not litter the init file.
+- Changing some default configs via menu
+- Using a custom file for this to not litter the init file.
+- [Fixing wrong PATH on osx](https://github.com/purcell/exec-path-from-shell)
+- editorconfig
 
-### Fixing wrong PATH on osx
+## UI
 
-- https://github.com/purcell/exec-path-from-shell
+- zerodark theme
+- golden ratio
 
 ## Persistency
 
