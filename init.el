@@ -221,11 +221,24 @@
 
 (require 'setup-ui)
 
-
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+(use-package web-mode
+  ;; :disabled
+  :mode (("\\.html?\\'" . web-mode)
+         ("\\.css\\'"   . web-mode)
+         ("\\.jsx?\\'"  . web-mode)
+         ("\\.tsx?\\'"  . web-mode)
+         ("\\.json\\'"  . web-mode))
+  :config
+  ;; (setq web-mode-markup-indent-offset ian/indent-width)
+  ;; (setq web-mode-code-indent-offset ian/indent-width)
+  ;; (setq web-mode-css-indent-offset ian/indent-width)
+  (setq web-mode-content-types-alist '(("tsx" . "\\.ts[x]?\\'")))
+  (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
 (provide 'init)
 ;;; init.el ends here

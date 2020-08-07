@@ -99,6 +99,10 @@ Usage `M-x esup`
   - https://www.flycheck.org/en/latest/index.html
   - https://www.reddit.com/r/emacs/comments/931la6/tip_how_to_adopt_flycheck_as_your_new_best_friend/
 
+## Web.dev
+
+- lsp
+- web-mode
 # ToDo
 
 - https://www.emacswiki.org/emacs/EmacsClient
