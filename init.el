@@ -237,6 +237,9 @@
   :config
   (auto-compile-on-save-mode))
 
+;; load my personal helper functions
+(require 'setup-helper)
+
 
 
 (require 'init-windmove)
