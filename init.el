@@ -162,6 +162,10 @@
   (setq midnight-period 7200)
   (midnight-mode 1))
 
+(use-package editorconfig
+  :custom
+  (editorconfig-mode 1))
+
 ;; Make windmove work in Org mode: (untested but left here)
 (use-package org
   :config
@@ -211,6 +215,7 @@
 
 (require 'init-lsp)
 (require 'setup-git)  ;; includes magit
+(require 'setup-treemacs)
 
 (use-package flycheck
   :defer t
