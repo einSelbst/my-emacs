@@ -227,6 +227,27 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package json-mode
+  ;; :defer t
+  )
+
+;; https://github.com/madintist/emacs-config/blob/e21d3b2127c6946bbc9835728e264b88083bd55b/.emacs.d/config/packages/prettier.el
+(use-package prettier-js
+  ;; :defer t
+  :init
+  (if (string= (getenv "EMACS_ENV") "personal")
+      (setq prettier-js-command "prettier")
+    (setq prettier-js-command "prettier-standard"))
+  (add-hook 'js2-mode-hook 'prettier-js-mode))
+
+(use-package terraform-mode
+  ;; :defer t
+  )
+
+(use-package yaml-mode
+  ;; :defer t
+  )
+
 (use-package web-mode
   ;; :disabled
   :mode (("\\.html?\\'" . web-mode)

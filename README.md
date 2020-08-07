@@ -117,6 +117,7 @@ Usage `M-x esup`
 - https://github.com/ACEMerlin/lain-emacs
 - https://github.com/emacscollective/no-littering
 
+- https://zzamboni.org/post/my-emacs-configuration-with-commentary/
 - https://github.com/daedreth/UncleDavesEmacs
 
 - from reddit https://www.reddit.com/r/emacs/comments/hbti7g/is_there_something_better_for_htmlcss_editing/
@@ -135,6 +136,7 @@ MacOS Dark Mode detection
 
 - js-2, rjsx & lsp https://github.com/markx/emacs.d/blob/4bb3dd529647880e6ee399cb8c45d840d672d6d8/config/init-js.el
 
+- https://github.com/d12frosted/flyspell-correct
 
 
 # use-package cheat sheet
@@ -268,8 +270,8 @@ MacOS Dark Mode detection
 
 # commands
 
-M-x describe-personal-keybindings to see all such keybindings you've set throughout your .emacs file
-C-h C-a more info about emacs, the start screen
+M-x describe-personal-keybindings - to see all such keybindings you've set throughout your .emacs file
+C-h C-a                           - more info about emacs, the start screen
 if you want to know why something is displayed in a particular color, put the cursor on it and type C-u C-x = (the command what-cursor-position with a prefix argument), which displays lots of information about whatever's under the cursor, including its current face.
 
 Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lain-emacs)
@@ -297,6 +299,13 @@ Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lai
 ("<f2> u"  . counsel-unicode-char)
 ("C-c C-r" . ivy-resume)       ; Resume last Ivy-based completion
 
+### Emmet-mode
+
+C-j expand snippet (emmet-expand-line)
+
+Go to Edit Point - Traverse between important code points in HTML:
+<C-M-left> is "Previous Edit Point" (M-x emmet-prev-edit-point)
+<C-M-right> is "Next Edit Point" (M-x emmet-next-edit-point)
 
 ## Troubleshooting
 
