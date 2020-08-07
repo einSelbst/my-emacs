@@ -286,7 +286,7 @@
 (use-package zerodark-theme
 ;;  :after (all-the-icons flycheck magit)
   :init (load-theme 'zerodark t)
-  :config
+  :custom
   (zerodark-setup-modeline-format)
   )
 
