@@ -112,7 +112,6 @@ If no START and END is provided, the current 'region-beginning' and
     (copy-line arg)))
 
 
-
 ;; improve selective display, F5 toggles based on cursor
 ;; (global-set-key "\C-x$" 'set-selective-display-dlw)
 (global-set-key (kbd "<f5>") 'set-selective-display-dlw)
@@ -128,6 +127,18 @@ F5 again will unset selective buffer by setting it to 0."
       (set-selective-display 0)
     (set-selective-display (or level (1+ (current-column))))))
 
+
+;; key bindings
+;; https://github.com/magnars/.emacs.d/blob/master/settings/key-bindings.el
+;; Use M-w for copy-line if no active region
+(global-set-key (kbd "M-w") 'save-region-or-current-line)
+;;(global-set-key (kbd "s-w") 'save-region-or-current-line)
+
+;; Comment/uncomment block
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region-or-line)
+
+;; Duplicate region
+(global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
 (provide 'setup-helper)
 ;;; setup-helper.el ends here
