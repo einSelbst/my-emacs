@@ -178,37 +178,8 @@
    async-bytecomp-package-mode)
   )
 
-;; remember open buffers
-;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#buffers-and-windows
-(use-package desktop
-  :hook
-  (after-init . desktop-read)
-  (after-init . desktop-save-mode)
-  )
-
-;; save history
-;; https://github.com/sboosali/.emacs.d/blob/master/sboo/configuration/10-internal-packages/sboo-savehist.el
-;; https://github.com/fasciism/dot-emacs/blob/master/2017-01-13-remembering-history.org
-
-(use-package savehist
-  :hook
-  (after-init . savehist-mode)
-  :config
-  (setq-default savehist-file (concat user-emacs-directory "savehist"))
-  (when (not (file-exists-p savehist-file))
-    (write-file savehist-file))
-  (setq savehist-save-minibuffer-history t)
-  (setq history-delete-duplicates t)
-  (setq history-length 100)
-  (put 'minibuffer-history 'history-length 50)
-  (put 'evil-ex-history 'history-length 50)
-  (put 'kill-ring 'history-length 25))
-
-;; not sure if I need this
-(use-package focus-autosave-mode
-  :init (focus-autosave-mode)
-  :diminish
-  :commands focus-autosave-mode)
+;; saving files and state
+(require 'init-persistency)
 
 ;; https://zzamboni.org/post/my-emacs-configuration-with-commentary/
 (use-package midnight
