@@ -1,4 +1,6 @@
-;;; #init-lsp.el
+;;; init-lsp.el --- something
+
+;;; Commentary:
 
 ;; LSP mode
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/
@@ -6,7 +8,7 @@
 ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
 ;; (setq lsp-keymap-prefix "s-l")
 
-
+;;; Code:
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
 ;;   :diminish
@@ -27,8 +29,8 @@
   (add-hook 'prog-mode-hook 'lsp)
   ;; optimize performance
   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/
-  (setq gc-cons-threshold 100000000            ;; 100mb
-        read-process-output-max (* 1024 1024) ;; 1mb
+  (setq read-process-output-max (* 1024 1024) ;; 1mb
+        ;; gc-cons-threshold 100000000            ;; 100mb ;; already set in speed-up.el
         ;; additional settings
         lsp-semantic-highlighting 1
         lsp-modeline-code-actions-mode 1
@@ -36,11 +38,11 @@
         ;; auto restart lsp
         lsp-restart 'auto-restart)
   
-  ;;(use-package lsp-ui
-  ;;  :config
-  ;;  (setq lsp-ui-sideline-ignore-duplicate t)
+  (use-package lsp-ui
+   :config
+   ;; (setq lsp-ui-sideline-ignore-duplicate t)
    ;; (setq lsp-ui-flycheck-enable nil)
-  ;;  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
   (use-package company-lsp
     :requires company
@@ -74,17 +76,22 @@
   :commands lsp-ui-mode
 ;;  :requires lsp-mode flycheck
   :config
-  (setq lsp-ui-doc-enable t
-        lsp-ui-doc-use-childframe t
-;;        lsp-ui-doc-position 'top
-        lsp-ui-doc-include-signature t
-        lsp-ui-sideline-enable t
-  ;;      lsp-ui-flycheck-enable t
-  ;;      lsp-ui-flycheck-list-position 'right
-  ;;      lsp-ui-flycheck-live-reporting t
-        lsp-ui-peek-enable t
-        lsp-ui-peek-list-width 60
-        lsp-ui-peek-peek-height 25)
+  (setq
+   ;; lsp-ui-doc-enable t
+   ;; lsp-ui-doc-use-childframe t
+   ;; lsp-ui-doc-position 'top
+   ;; lsp-ui-doc-include-signature t
+   lsp-ui-sideline-enable t
+   lsp-ui-sideline-show-code-actions t
+   lsp-ui-sideline-show-hover t
+   lsp-ui-sideline-update-mode 'line
+        ;; lsp-ui-flycheck-enable t
+        ;; lsp-ui-flycheck-list-position 'right
+        ;; lsp-ui-flycheck-live-reporting t
+        ;; lsp-ui-peek-enable t
+        ;; lsp-ui-peek-list-width 60
+        ;; lsp-ui-peek-peek-height 25
+        )
   )
 
 
@@ -106,4 +113,4 @@
 ;;  :hook ((typescript-mode javascript-mode js2-mode js-mode rjsx-mode) . lsp-javascript-typescript-enable))
 
 (provide 'init-lsp)
-;;; init-lsp.el ends here.
+;;; init-lsp.el ends here
