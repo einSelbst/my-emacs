@@ -1,4 +1,7 @@
-;;; #init-company.el
+;;; init-company.el --- something
+;;; Commentary:
+;;; Code:
+(require 'use-package)
 
 (use-package company
   :commands company-mode
@@ -20,4 +23,4 @@
         ))
 
 (provide 'init-company)
-;;; init-company.el ends here.
+;;; init-company.el ends here
