@@ -128,16 +128,23 @@
 
 (require 'setup-package-loading)
 
-
-
 ;; Use same paths as user environment on macOS
 (use-package exec-path-from-shell
-  :if (eq system-type 'darwin)
+  ;; :if (memq window-system '(mac ns))
+  :init
+  (exec-path-from-shell-initialize)
   :custom
   (exec-path-from-shell-check-startup-files nil)
   (exec-path-from-shell-variables '("PATH" "MANPATH"))
-  :init
-  (exec-path-from-shell-initialize))
+)
+
+;; (use-package exec-path-from-shell
+;;   :if (eq system-type 'darwin)
+;;   :custom
+;;   (exec-path-from-shell-check-startup-files nil)
+;;   (exec-path-from-shell-variables '("PATH" "MANPATH"))
+;;   :config
+;;   (exec-path-from-shell-initialize))
 
 (use-package async
   :init
