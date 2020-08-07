@@ -196,10 +196,15 @@
   (which-key-mode))
 
 
+;; (use-package yasnippet
+;;   :config
+;; ;;  (use-package yasnippet-snippets)
+;;   (yas-reload-all))
+
 (use-package yasnippet
-  :config
-;;  (use-package yasnippet-snippets)
-  (yas-reload-all))
+  :diminish yas-minor-mode
+  :hook (after-init . yas-global-mode)
+  :config (use-package yasnippet-snippets))
 
 
 (require 'init-lsp)
