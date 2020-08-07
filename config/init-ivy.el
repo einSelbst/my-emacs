@@ -69,8 +69,8 @@
   :custom
   (counsel-find-file-at-point t)
   (enable-recursive-minibuffers t)
-  :config
-  (counsel-mode))
+  :commands counsel-mode
+  )
 
 (use-package ivy-rich
   :after ivy
@@ -98,7 +98,7 @@
 ;;   ivy-use-virtual-buffers)
 
 (use-package all-the-icons-ivy
-  :after ivy-mode)
+  :after ivy)
 
 (use-package all-the-icons-ivy-rich
   :after ivy-rich
