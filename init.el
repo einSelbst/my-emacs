@@ -240,5 +240,23 @@
   ;; (setq web-mode-css-indent-offset ian/indent-width)
   (setq web-mode-content-types-alist '(("tsx" . "\\.ts[x]?\\'")))
   (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
+
+;; silence warning about package cl deprecated
+;; https://github.com/kiwanami/emacs-epc/issues/35
+(setq byte-compile-warnings '(cl-functions))
+;; (use-package emmet-mode)
+(use-package emmet-mode
+  ;; :defer t
+  :hook (css-mode scss-mode js-mode sgml-mode web-mode html-mode haml-mode nxml-mode rjsx-mode)
+  :custom
+  (emmet-expand-jsx-className? t)
+  (emmet-move-cursor-between-quotes t)
+  (emmet-self-closing-tag-style " /") ;; default "/"
+;;   ;; only " /", "/" and "" are valid.
+;;   ;; eg. <meta />, <meta/>, <meta>
+;;   ;; (when (require 'yasnippet nil t)
+;;     ;; (add-hook 'emmet-mode-hook #'yas-minor-mode-on))
+)
+
 (provide 'init)
 ;;; init.el ends here

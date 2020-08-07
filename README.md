@@ -103,6 +103,8 @@ Usage `M-x esup`
 
 - lsp
 - web-mode
+- https://github.com/smihica/emmet-mode
+
 # ToDo
 
 - https://www.emacswiki.org/emacs/EmacsClient
