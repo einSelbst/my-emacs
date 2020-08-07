@@ -262,6 +262,7 @@
 
 
 (require 'init-lsp)
+(require 'setup-git)  ;; includes magit
 
 (use-package golden-ratio
   :defer t
@@ -276,13 +277,6 @@
   (flycheck-display-errors-delay .3)
   ;;(flycheck-stylelintrc "~/.stylelintrc.json")
   )
-
-(use-package magit
-  :config
-  (setq magit-push-always-verify nil)
-  (setq git-commit-summary-max-length 50)
-  :bind
-  ("M-g" . magit-status))
 
 (use-package all-the-icons)
 

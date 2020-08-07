@@ -84,9 +84,9 @@ Using a custom file for this to not litter the init file.
   - https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html#fnr.1
   - http://bnbeckwith.com/bnb-emacs/#org8e91110
 - Company
-- maggit?
 - Midnight - auto-close buffers if not edited recentlyj
 - Focus-autosave-mode - saves buffer when moving to other buffer
+- Magit
 
 ## Language support
 
