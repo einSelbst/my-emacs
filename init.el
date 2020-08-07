@@ -162,6 +162,11 @@
   (setq midnight-period 7200)
   (midnight-mode 1))
 
+;;; Byte-compilation
+(setq load-prefer-newer t)
+(use-package auto-compile
+  :commands auto-compile-on-save-mode)
+
 (use-package editorconfig
   :custom
   (editorconfig-mode 1))
@@ -180,27 +185,11 @@
   ;;(global-whitespace-cleanup-mode 1)
   )
 
-;;; Byte-compilation
-(setq load-prefer-newer t)
-(use-package auto-compile
-  :config
-  (auto-compile-on-save-mode))
-
 ;; load my personal helper functions
 (require 'setup-helper)
-
-
-
 (require 'init-windmove)
 (require 'init-ivy)
 (require 'init-company)
-
-(use-package markdown-mode
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-
 
 (use-package which-key
   :config
@@ -229,5 +218,10 @@
 (require 'setup-ui)
 
 
+(use-package markdown-mode
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 (provide 'init)
 ;;; init.el ends here
