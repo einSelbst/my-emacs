@@ -100,6 +100,13 @@
   "Always remember taking care of your thoughts."
   (message "Wheater you think you can do it or not, you'll always be right!"))
 
+;;(setq
+ ;; top directory, usually ~/.emacs.d/
+;; xpersist-dir (file-name-directory (or (buffer-file-name) load-file-name))
+ ;; starter kit lisp sources directory
+;; persist-dir (concat user-emacs-directory "persist/")
+;; )
+
 ;; https://github.com/plexus/.emacs.d/blob/master/init.d/setup-emacs.el
 ;; Save all backup file in this directory
 ;; Write backup files to own directory
@@ -278,6 +285,11 @@
 ;;   ;; (when (require 'yasnippet nil t)
 ;;     ;; (add-hook 'emmet-mode-hook #'yas-minor-mode-on))
 )
+
+;; -> https://emacs.stackexchange.com/a/19507/16535
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
 
 (provide 'init)
 ;;; init.el ends here
