@@ -56,11 +56,6 @@ https://github.com/jschaf/esup
 
 Usage `M-x esup`
 
-Total User Startup Time: 0.100sec     Total Number of GC Pauses: 2     Total GC Time: 0.026sec
-Total User Startup Time: 0.093sec     Total Number of GC Pauses: 2     Total GC Time: 0.028sec
-Total User Startup Time: 0.233sec     Total Number of GC Pauses: 3     Total GC Time: 0.041sec
-Total User Startup Time: 0.232sec     Total Number of GC Pauses: 3     Total GC Time: 0.045sec
-
 ## Changing some default configs via menu
 
 Using a custom file for this to not litter the init file.
@@ -84,10 +79,11 @@ Using a custom file for this to not litter the init file.
 - https://github.com/emacscollective/auto-compile
 - https://github.com/justbur/emacs-which-key/
 - https://github.com/roman/golden-ratio.el
-- Ivy/Counsel/Swiper https://dev.to/deciduously/how-i-emacs-and-so-can-you-packages-m9p
+- Ivy/Counsel/Swiper/Smex
+  - https://dev.to/deciduously/how-i-emacs-and-so-can-you-packages-m9p
+  - https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html#fnr.1
+  - http://bnbeckwith.com/bnb-emacs/#org8e91110
 - Company
-- helm?
-- ido?
 - maggit?
 
 ## Language support

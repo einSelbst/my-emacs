@@ -22,3 +22,4 @@ straight/
 # lsp
 .lsp-session-v*
 .cache/lsp/
+smex-items

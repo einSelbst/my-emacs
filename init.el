@@ -217,14 +217,12 @@
   (setq org-log-done 'time)
   )
 
-
 (use-package whitespace-cleanup-mode
   :diminish
   :commands whitespace-cleanup-mode
   ;;:config
   ;;(global-whitespace-cleanup-mode 1)
   )
-
 
 ;;; Byte-compilation
 (setq load-prefer-newer t)
@@ -233,8 +231,6 @@
   (auto-compile-on-save-mode))
 
 
-;; Pull in ./config/*
-(add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
 (require 'init-windmove)
 (require 'init-ivy)
