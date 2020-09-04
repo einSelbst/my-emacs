@@ -64,7 +64,8 @@ ln -s /usr/local/opt/emacs-head/Emacs.app /Applications/Emacs-Head.app
 
 <details>
 <summary>Shell Output</summary>
-``` shell
+
+```shell
 ==> emacs-head
 Emacs.app was installed to:
   /usr/local/opt/emacs-head
@@ -76,7 +77,9 @@ To have launchd start daviderestivo/emacs-head/emacs-head now and restart at log
 Or, if you don't want/need a background service you can just run:
   emacs
 ```
+
 </details>
+
 ---
 
 ### Emacs-Mac
@@ -106,6 +109,7 @@ To use different emacs configurations side-by-side.
 
 <details>
 <summary>use-package cheat sheet</summary>
+
 ```elisp
 (use-package color-moccur
   ;; the :commands keyword creates autoloads for those commands and defers loading of the module until they are used
@@ -232,7 +236,9 @@ To use different emacs configurations side-by-side.
   :config
   (message "This is evaluated when `foo' is loaded"))
 ```
+
 </details>
+
 
 ## Startup Profiling
 
