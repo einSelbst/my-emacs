@@ -11,21 +11,59 @@ all of it's features as it was a little bit overwhelming. The
 thing I struggled most with is typescript/react support and
 so this is what I start with.
 
-# Installation
+## Installation
 
-## Emacs
+I'm on OSX and there are [a few options](https://www.emacswiki.org/emacs/EmacsForMacOS#toc12) to get emacs. I'm only interested in homebrew based installs and so I have installed some of the following, but I don't have a clear preference yet. For better distinction different icons can be used.
+
+### Emacs 
+
+Default homebrew installation.
+
+``` shell
+brew install emacs --use-git-head --with-cocoa --with-gnutls --with-rsvg --with-imagemagick
+```
+
+Default homebrew installation for latest beta.
+
+``` shell
+brew install emacs --HEAD --use-git-head --with-cocoa --with-gnutls --with-rsvg --with-imagemagick
+```
+---
+
+### Emacs (cask)
+
+Pure Emacs. Default homebrew cask installation, by David Caldweel.
+
+https://emacsformacosx.com/ 
+
+``` shell
+brew cask install emacs
+```
+---
+
+### Emacs Plus
+
+https://github.com/d12frosted/homebrew-emacs-plus
+
+``` shell
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
+ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs-Plus.app
+```
+---
+
+### Emacs-Head
 
 https://github.com/daviderestivo/homebrew-emacs-head
 
 ``` shell
 brew tap daviderestivo/emacs-head
 brew install emacs-head --HEAD --with-cocoa --with-jansson --with-modern-icon-sexy-v1
-
 ln -s /usr/local/opt/emacs-head/Emacs.app /Applications/Emacs-Head.app
 ```
 
-Shell Output
-
+<details>
+<summary>Shell Output</summary>
 ``` shell
 ==> emacs-head
 Emacs.app was installed to:
@@ -38,109 +76,36 @@ To have launchd start daviderestivo/emacs-head/emacs-head now and restart at log
 Or, if you don't want/need a background service you can just run:
   emacs
 ```
+</details>
+---
+
+### Emacs-Mac
+
+With native GUI support for Mac OS X, by Mitsuharu Yamamoto.
+
+https://bitbucket.org/mituharu/emacs-mac/src/master/README-mac
+https://github.com/railwaycat/homebrew-emacsmacport
+
+``` shell
+brew tap railwaycat/emacsmacport
+brew cask install emacs-mac
+ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs-Mac.app
+```
+
 
 ## Emacs Profile Switcher
 
-https://github.com/plexus/chemacs
+To use different emacs configurations side-by-side.
 
-## Package Manager
+- https://github.com/plexus/chemacs
+
+## Package Management
 
 - https://github.com/raxod502/straight.el
 - use-package
 
-## Startup Profiling
-
-https://github.com/jschaf/esup
-
-Usage `M-x esup`
-
-## Configuration
-
-- Changing some default configs via menu
-- Using a custom file for this to not litter the init file.
-- [Fixing wrong PATH on osx](https://github.com/purcell/exec-path-from-shell)
-- editorconfig
-
-## UI
-
-- zerodark theme
-- golden ratio
-
-## Persistency
-
-- desktop save mode
-- savehist
-
-## Locomotion
-
-- windmove
-
-## Convenience
-
-- https://github.com/purcell/whitespace-cleanup-mode
-- https://github.com/emacscollective/auto-compile
-- https://github.com/justbur/emacs-which-key/
-- https://github.com/roman/golden-ratio.el
-- Ivy/Counsel/Swiper/Smex
-  - https://dev.to/deciduously/how-i-emacs-and-so-can-you-packages-m9p
-  - https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html#fnr.1
-  - http://bnbeckwith.com/bnb-emacs/#org8e91110
-- Company
-- Midnight - auto-close buffers if not edited recentlyj
-- Focus-autosave-mode - saves buffer when moving to other buffer
-- Magit
-
-## Language support
-
-- https://github.com/jrblevin/markdown-mode
-- https://emacs-lsp.github.io/lsp-mode/
-
-- flycheck
-  - https://www.flycheck.org/en/latest/index.html
-  - https://www.reddit.com/r/emacs/comments/931la6/tip_how_to_adopt_flycheck_as_your_new_best_friend/
-
-## Web.dev
-
-- lsp
-- web-mode
-- https://github.com/smihica/emmet-mode
-
-# ToDo
-
-- https://www.emacswiki.org/emacs/EmacsClient
-- https://patrickskiba.com/emacs/2019/09/07/emacs-for-react-dev.html
-
-# more ideas
-
-- https://github.com/emacs-tw/awesome-emacs
-- https://github.com/Wilfred/helpful
-- https://github.com/ACEMerlin/lain-emacs
-- https://github.com/emacscollective/no-littering
-
-- https://zzamboni.org/post/my-emacs-configuration-with-commentary/
-- https://github.com/daedreth/UncleDavesEmacs
-
-- from reddit https://www.reddit.com/r/emacs/comments/hbti7g/is_there_something_better_for_htmlcss_editing/
-  - https://emmet.io/
-  - https://github.com/veshboo/emacs/blob/master/lisp/textmodes/mhtml-mode.el
-  - https://emacs-lsp.github.io/lsp-mode/page/lsp-html/
-  - https://emacs-lsp.github.io/lsp-mode/page/lsp-css/
-
-MacOS Dark Mode detection
-- https://github.com/daviderestivo/homebrew-emacs-head#system-appearance-change-support
-- https://www.reddit.com/r/emacs/comments/h9zoy9/weekly_tipstricketc_thread/fuzucay/
-
-- https://www.emacswiki.org/emacs/GotoChg
-- emmet
-  - https://github.com/madintist/emacs-config/blob/e21d3b2127c6946bbc9835728e264b88083bd55b/.emacs.d/config/packages/emmet.el
-
-- js-2, rjsx & lsp https://github.com/markx/emacs.d/blob/4bb3dd529647880e6ee399cb8c45d840d672d6d8/config/init-js.el
-
-- https://github.com/d12frosted/flyspell-correct
-
-
-# use-package cheat sheet
-
+<details>
+<summary>use-package cheat sheet</summary>
 ```elisp
 (use-package color-moccur
   ;; the :commands keyword creates autoloads for those commands and defers loading of the module until they are used
@@ -267,14 +232,104 @@ MacOS Dark Mode detection
   :config
   (message "This is evaluated when `foo' is loaded"))
 ```
+</details>
+
+## Startup Profiling
+
+https://github.com/jschaf/esup
+
+Usage `M-x esup`
+
+## Configuration
+
+- Use custom file for changed default configs to not litter the init file.
+- [Fixing wrong PATH on osx](https://github.com/purcell/exec-path-from-shell)
+- editorconfig
+
+## UI
+
+- zerodark theme
+- https://github.com/roman/golden-ratio.el
+
+## Persistency
+
+- desktop save mode
+- savehist
+
+## Locomotion
+
+- windmove
+
+## Convenience
+
+- https://github.com/purcell/whitespace-cleanup-mode
+- https://github.com/emacscollective/auto-compile
+- https://github.com/justbur/emacs-which-key/
+- Ivy/Counsel/Swiper/Smex
+  - https://dev.to/deciduously/how-i-emacs-and-so-can-you-packages-m9p
+  - https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html#fnr.1
+  - http://bnbeckwith.com/bnb-emacs/#org8e91110
+- Company
+- Midnight - auto-close buffers if not edited recently
+- Focus-autosave-mode - saves buffer when moving to other buffer
+- Magit
+
+## Language support
+
+- https://github.com/jrblevin/markdown-mode
+- https://emacs-lsp.github.io/lsp-mode/
+
+- flycheck
+  - https://www.flycheck.org/en/latest/index.html
+  - https://www.reddit.com/r/emacs/comments/931la6/tip_how_to_adopt_flycheck_as_your_new_best_friend/
+
+## Web.dev
+
+- lsp
+- web-mode
+- https://github.com/smihica/emmet-mode
+
+# ToDo
+
+- https://www.emacswiki.org/emacs/EmacsClient
+- https://patrickskiba.com/emacs/2019/09/07/emacs-for-react-dev.html
+
+# more ideas
+
+- https://github.com/emacs-tw/awesome-emacs
+- https://github.com/Wilfred/helpful
+- https://github.com/ACEMerlin/lain-emacs
+- https://github.com/emacscollective/no-littering
+
+- https://zzamboni.org/post/my-emacs-configuration-with-commentary/
+- https://github.com/daedreth/UncleDavesEmacs
+
+- from reddit https://www.reddit.com/r/emacs/comments/hbti7g/is_there_something_better_for_htmlcss_editing/
+  - https://emmet.io/
+  - https://github.com/veshboo/emacs/blob/master/lisp/textmodes/mhtml-mode.el
+  - https://emacs-lsp.github.io/lsp-mode/page/lsp-html/
+  - https://emacs-lsp.github.io/lsp-mode/page/lsp-css/
+
+MacOS Dark Mode detection
+- https://github.com/daviderestivo/homebrew-emacs-head#system-appearance-change-support
+- https://www.reddit.com/r/emacs/comments/h9zoy9/weekly_tipstricketc_thread/fuzucay/
+
+- https://www.emacswiki.org/emacs/GotoChg
+- emmet
+  - https://github.com/madintist/emacs-config/blob/e21d3b2127c6946bbc9835728e264b88083bd55b/.emacs.d/config/packages/emmet.el
+
+- js-2, rjsx & lsp https://github.com/markx/emacs.d/blob/4bb3dd529647880e6ee399cb8c45d840d672d6d8/config/init-js.el
+
+- https://github.com/d12frosted/flyspell-correct
 
 # commands
 
-M-x describe-personal-keybindings - to see all such keybindings you've set throughout your .emacs file
-C-h C-a                           - more info about emacs, the start screen
-if you want to know why something is displayed in a particular color, put the cursor on it and type C-u C-x = (the command what-cursor-position with a prefix argument), which displays lots of information about whatever's under the cursor, including its current face.
+- M-x describe-personal-keybindings - to see all such keybindings you've set throughout your .emacs file
+- C-h C-a                           - more info about emacs, the start screen
+- if you want to know why something is displayed in a particular color, put the cursor on it and type C-u C-x = (the command what-cursor-position with a prefix argument), which displays lots of information about whatever's under the cursor, including its current face.
 
 Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lain-emacs)
+
 - C-h k documentation for a key stroke
 - C-h f documentation for a function
 - C-h v documentation for a variable
@@ -283,31 +338,33 @@ Emacs Lisp is extremely well documented. [Thanks!](https://github.com/0x7ffc/lai
 
 ### from counsel
 
-("M-x"     . counsel-M-x)
-("C-s"     . swiper)
-("C-x C-f" . counsel-find-file)
-("C-x C-r" . counsel-recentf)  ; search for recently edited
-("C-c g"   . counsel-git)      ; search for files in git repo
-("C-c j"   . counsel-git-grep) ; search for regexp in git repo
-("C-c /"   . counsel-ag)       ; Use ag for regexp
-("C-x l"   . counsel-locate)
-("C-x C-f" . counsel-find-file)
-("<f1> f"  . counsel-describe-function)
-("<f1> v"  . counsel-describe-variable)
-("<f1> l"  . counsel-find-library)
-("<f2> i"  . counsel-info-lookup-symbol)
-("<f2> u"  . counsel-unicode-char)
-("C-c C-r" . ivy-resume)       ; Resume last Ivy-based completion
+- ("M-x"     . counsel-M-x)
+- ("C-s"     . swiper)
+- ("C-x C-f" . counsel-find-file)
+- ("C-x C-r" . counsel-recentf)  ; search for recently edited
+- ("C-c g"   . counsel-git)      ; search for files in git repo
+- ("C-c j"   . counsel-git-grep) ; search for regexp in git repo
+- ("C-c /"   . counsel-ag)       ; Use ag for regexp
+- ("C-x l"   . counsel-locate)
+- ("C-x C-f" . counsel-find-file)
+- ("<f1> f"  . counsel-describe-function)
+- ("<f1> v"  . counsel-describe-variable)
+- ("<f1> l"  . counsel-find-library)
+- ("<f2> i"  . counsel-info-lookup-symbol)
+- ("<f2> u"  . counsel-unicode-char)
+- ("C-c C-r" . ivy-resume)       ; Resume last Ivy-based completion
 
 ### Emmet-mode
 
-C-j expand snippet (emmet-expand-line)
+- C-j expand snippet (emmet-expand-line)
 
-Go to Edit Point - Traverse between important code points in HTML:
-<C-M-left> is "Previous Edit Point" (M-x emmet-prev-edit-point)
-<C-M-right> is "Next Edit Point" (M-x emmet-next-edit-point)
+- Go to Edit Point - Traverse between important code points in HTML:
+- <C-M-left> is "Previous Edit Point" (M-x emmet-prev-edit-point)
+- <C-M-right> is "Next Edit Point" (M-x emmet-next-edit-point)
 
 ## Troubleshooting
 
-`M-x package-refresh-contents`   if a package won't be loaded
-`M-x flycheck-verify-setup`
+- `M-x package-refresh-contents`   if a package won't be loaded
+- `M-x flycheck-verify-setup`
+
+
