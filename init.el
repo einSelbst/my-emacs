@@ -220,6 +220,7 @@
   )
 
 (require 'setup-ui)
+(require 'setup-wakatime)
 
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)

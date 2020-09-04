@@ -273,6 +273,7 @@ Usage `M-x esup`
 - Midnight - auto-close buffers if not edited recently
 - Focus-autosave-mode - saves buffer when moving to other buffer
 - Magit
+- Wakatime
 
 ## Language support
 
