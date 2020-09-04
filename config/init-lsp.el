@@ -13,8 +13,8 @@
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-;;   :diminish
-;;   :hook ((c++-mode        . lsp-deferred)
+  :hook (
+;;          (c++-mode        . lsp-deferred)
 ;;          (cmake-mode      . lsp-deferred)
 ;;          (css-mode        . lsp-deferred)
 ;;          (go-mode         . lsp-deferred)
@@ -25,16 +25,19 @@
 ;;          (yaml-mode       . lsp-deferred)
 ;;          (html-mode       . lsp-deferred)
 ;;          (typescript-mode . lsp-deferred)
-;;          (lsp-mode . lsp-enable-which-key-integration)))
+         (lsp-mode . lsp-enable-which-key-integration))
+  :init
+  ;; Increase max number of bytes read from subprocess in a single chunk.
+  (setq read-process-output-max (* 1024 1024)):config
   :config
   (require 'lsp-clients)
   (add-hook 'prog-mode-hook 'lsp)
   ;; optimize performance
   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/
-  (setq read-process-output-max (* 1024 1024) ;; 1mb
+  (setq ;; read-process-output-max (* 1024 1024) ;; 1mb
         ;; gc-cons-threshold 100000000            ;; 100mb ;; already set in speed-up.el
         ;; additional settings
-        lsp-semantic-highlighting 1
+        lsp-enable-semantic-highlighting 1
         lsp-modeline-code-actions-mode 1
         lsp-headerline-breadcrumb-mode 1
         ;; auto restart lsp
@@ -55,7 +58,7 @@
           company-lsp-async t
           company-lsp-cache-candidates nil
           company-minimum-prefix-length 1
-          company-idle-delay 0.0) ;; default is 0.2
+          company-idle-delay 0.1) ;; default is 0.2
     (push 'company-lsp company-backends))
 
   
@@ -76,12 +79,12 @@
 ;; optionally
 (use-package lsp-ui
   :commands lsp-ui-mode
-;;  :requires lsp-mode flycheck
+  :after lsp-mode flycheck
   :config
   (setq
    lsp-ui-doc-enable t
    lsp-ui-doc-use-childframe t
-   ;; lsp-ui-doc-position 'top
+   lsp-ui-doc-position 'top
    ;; lsp-ui-doc-include-signature t
    lsp-ui-sideline-enable t
    lsp-ui-sideline-show-code-actions t
