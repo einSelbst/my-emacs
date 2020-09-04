@@ -22,5 +22,8 @@ straight/
 # lsp
 .lsp-session-v*
 .cache/lsp/
+
+# other
 smex-items
 .cache/treemacs-persist
+semanticdb/
