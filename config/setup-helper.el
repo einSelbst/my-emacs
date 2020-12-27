@@ -140,5 +140,9 @@ F5 again will unset selective buffer by setting it to 0."
 ;; Duplicate region
 (global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
+;; personal movement improvements
+(global-set-key (kbd "C-f") 'forward-paragraph)
+(global-set-key (kbd "C-b") 'backward-paragraph)
+
 (provide 'setup-helper)
 ;;; setup-helper.el ends here
