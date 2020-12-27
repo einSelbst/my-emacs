@@ -288,7 +288,14 @@
 ;;   ;; eg. <meta />, <meta/>, <meta>
 ;;   ;; (when (require 'yasnippet nil t)
 ;;     ;; (add-hook 'emmet-mode-hook #'yas-minor-mode-on))
-)
+  )
+
+;; no official emacs support from kite, just see if it still works
+;;(load-file "~/.emacs.d/kite.el")
+(use-package kite
+  :load-path "site-lisp/"
+  )
+
 
 (provide 'init)
 ;;; init.el ends here
