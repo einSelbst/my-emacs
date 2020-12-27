@@ -241,6 +241,16 @@
     (setq prettier-js-command "prettier-standard"))
   (add-hook 'js2-mode-hook 'prettier-js-mode))
 
+
+;; http://ergoemacs.org/emacs/xah-html-mode.html
+(use-package xah-html-mode
+  :straight (xah-html-mode :host github :repo "xahlee/xah-html-mode.el"))
+(use-package xah-replace-pairs)
+(use-package xah-get-thing)
+(use-package xah-css-mode)
+(use-package htmlize)
+
+
 (use-package terraform-mode
   ;; :defer t
   )
