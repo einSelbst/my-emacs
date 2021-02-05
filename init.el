@@ -290,6 +290,18 @@
 ;;     ;; (add-hook 'emmet-mode-hook #'yas-minor-mode-on))
   )
 
+;;;; some adventures
+
+;; https://github.com/jscheid/prettier.el
+(use-package prettier)
+;; (use-package prettier
+  ;; :straight ( :build (("npm" "install" "--frozen-lockfile") ("make"))
+              ;; :files (:defaults "*.js" "*.base64" "prettier-pkg.el" "example-file"))
+  ;;etc
+  ;; )
+;; (use-package iter2)
+;; (use-package nvm)
+
 ;; no official emacs support from kite, just see if it still works
 ;;(load-file "~/.emacs.d/kite.el")
 (use-package kite
