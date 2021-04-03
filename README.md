@@ -254,7 +254,7 @@ Usage `M-x esup`
 
 ## UI
 
-- zerodark theme
+- doom moonlight theme via [emacs-doom-themes](https://github.com/hlissner/emacs-doom-themes)
 - https://github.com/roman/golden-ratio.el
 
 ## Persistency
