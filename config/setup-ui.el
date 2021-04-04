@@ -22,7 +22,10 @@
   (doom-themes-treemacs-config)
   
   ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+  ;; (doom-themes-org-config)
+  )
+
+(load-theme 'doom-moonlight t)
 
 (use-package golden-ratio
   :defer t
