@@ -143,6 +143,8 @@ F5 again will unset selective buffer by setting it to 0."
 ;; personal movement improvements
 (global-set-key (kbd "C-f") 'forward-paragraph)
 (global-set-key (kbd "C-b") 'backward-paragraph)
+(global-set-key (kbd "s-f") 'forward-sexp)
+(global-set-key (kbd "s-b") 'backward-sexp)
 
 (provide 'setup-helper)
 ;;; setup-helper.el ends here
