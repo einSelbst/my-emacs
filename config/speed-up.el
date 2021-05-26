@@ -1,11 +1,14 @@
 ;;; speed-up.el --- Speed up configurations.	-*- lexical-binding: t -*-
+
 ;;; Commentary:
 ;; Speed up startup
+;; Garbage collection treshold (gc-cons-treshold) must also be increased for lsp, see init-lsp
+
 ;;; Code:
 (message "Speed-up emacs startup")
 
-;; (when (version< emacs-version "25.1")
-;;   (error "This requires Emacs 25.1 and above!"))
+(when (version< emacs-version "25.1")
+  (error "This requires Emacs 25.1 and above!"))
 
 ;; startup time hacks
 
@@ -16,7 +19,9 @@
 
 ;; reset it after load
 (add-hook 'emacs-startup-hook
-          (lambda () (setq gc-cons-threshold (* 1024 1024 20))))
+          (lambda ()
+            (setq gc-cons-threshold (* 1024 1024 100))
+            ))
 
 ;; ----------- empty file handler alist --------
 (defvar cfg--file-name-handler-alist file-name-handler-alist)
@@ -51,7 +56,7 @@
 
             (defun my-minibuffer-exit-hook ()
               (garbage-collect)
-              (setq gc-cons-threshold 800000))
+              (setq gc-cons-threshold (* 1024 1024 100)))
 
             (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
             (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)))
