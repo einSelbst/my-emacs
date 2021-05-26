@@ -14,12 +14,13 @@
  straight-use-package-by-default t
  straight-cache-autoloads t
  ;; straight-treat-as-init t
+ straight-vc-git-default-clone-depth 1
  use-package-always-defer t
  ;; use-package-always-ensure t  ;; straight.el says this should be disabled
  ;; use-package-expand-minimally t
  use-package-verbose t
  use-package-compute-statistics t
- ;; debug-on-error t
+ debug-on-error t
  )
 
 ;; little hack to fix an error in the init file:
@@ -52,6 +53,14 @@
   (require 'use-package))
 ;; (require 'diminish)                ;; if you use :diminish
 (require 'bind-key)
+
+;; to use system packages https://github.com/jwiegley/use-package#use-package-ensure-system-package
+(use-package use-package-ensure-system-package
+  :ensure t)
+
+;; updates GPG keys used by ELPA package manager
+;; https://elpa.gnu.org/packages/gnu-elpa-keyring-update.html
+;; (use-package gnu-elpa-keyring-update)
 
 (provide 'setup-package-loading)
 ;;; setup-package-loading.el ends here
