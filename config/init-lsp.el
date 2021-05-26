@@ -21,14 +21,11 @@
   :hook ((prog-mode . (lambda ()
                         (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode)
                           (lsp-deferred))))
-         ;; (js2-mode . lsp-deferred)
-         ;; (js-mode . lsp-deferred)
-         ;; (json-mode . lsp-deferred)
-         ;; (web-mode . lsp-deferred)
-         ;; (typescript-mode-hook . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration)
          (lsp-after-open . lsp-enable-imenu)
          (lsp-after-open . (lambda ()
+                             ;; https://github.com/scalameta/metals/issues/2641#issuecomment-812546564
+                             ;; probably not needed as it should be the default anyway
                              (setq-local lsp-completion-provider :capf)
                              (setq company-backends '((company-tabnine :separate company-capf company-yasnippet)))
                              ))
@@ -113,33 +110,8 @@
   :defer 5
   :straight nil)
 
-;;   (use-package company-lsp
-;;     :requires company
-;;     :config
-;;     ;; Disable client-side cache because the LSP server does a better job.
-;;     ;; from https://www.mortens.dev/blog/emacs-and-the-language-server-protocol/
-;;     (setq company-transformers nil
-;;           company-lsp-async t
-;;           company-lsp-cache-candidates nil
-;;           company-minimum-prefix-length 1
-;;           company-idle-delay 0.1) ;; default is 0.2
-;;     (push 'company-lsp company-backends))
-
-;;   ;;(defun lsp-set-cfg ()
-;;   ;;  (let ((lsp-cfg `(:pyls (:configurationSources ("flake8")))))
-;;   ;;    (lsp--set-configuration lsp-cfg)))
-
-;;   ;;(add-hook 'lsp-after-initialize-hook 'lsp-set-cfg))
-
-;; ;;(lsp-register-client
-;; ;; (make-lsp-client :new-connection (lsp-tramp-connection "pyls")
-;; ;;                  :major-modes '(python-mode)
-;; ;;                  :remote? t
-;; ;;                  :server-id 'pyls-remote))
-;; )
-
-;; ;; if you are helm user
-;; ;;(use-package helm-lsp :commands helm-lsp-workspace-symbol)
+;; if you are helm user
+;;(use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
 ;; if you are ivy user
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
