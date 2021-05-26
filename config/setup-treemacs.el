@@ -83,7 +83,22 @@
   :after treemacs persp-mode ;;or perspective vs. persp-mode
   :config (treemacs-set-scope-type 'Perspectives))
 
-(setq lsp-treemacs-sync-mode 1) ;; integrate with lsp
+;; integrate with lsp
+(use-package lsp-treemacs
+  :after treemacs lsp
+  :commands
+  (lsp-treemacs-symbols
+   lsp-treemacs-sync-mode
+   lsp-treemacs-errors-list
+   lsp-treemacs-references
+   lsp-treemacs-implementations
+   )
+
+  :bind
+  (("C-c l t s" . lsp-treemacs-symbols))
+  )
+
+(setq lsp-treemacs-sync-mode 1)
 
 (provide 'setup-treemacs)
 ;;; setup-treemacs.el ends here
