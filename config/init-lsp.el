@@ -29,9 +29,10 @@
          (lsp-mode . lsp-enable-which-key-integration)
          (lsp-after-open . lsp-enable-imenu)
          (lsp-after-open . (lambda ()
-                            (setq-local company-minimum-prefix-length 1
-                                  company-idle-delay 0.0) ;; default is 0.2
-                            )))
+                             (setq-local lsp-completion-provider :capf)
+                             (setq company-backends '((company-tabnine :separate company-capf company-yasnippet)))
+                             ))
+         )
   :bind (:map lsp-mode-map
               ("C-c C-t" . lsp-describe-thing-at-point))
 

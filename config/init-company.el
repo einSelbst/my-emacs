@@ -20,7 +20,14 @@
         company-show-numbers 'left
         ;; global-company-mode 1
         ;; global-set-key (kbd "C-<tab>") 'company-complete
-        ))
+        )
+  (add-to-list 'company-backends #'company-tabnine)
+  (setq company-backends '((company-tabnine :separate company-capf company-yasnippet)))
+)
+
+;; testing tabnine
+;; https://github.com/TommyX12/company-tabnine
+(use-package company-tabnine)
 
 (provide 'init-company)
 ;;; init-company.el ends here
