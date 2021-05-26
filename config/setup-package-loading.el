@@ -20,7 +20,7 @@
  ;; use-package-expand-minimally t
  use-package-verbose t
  use-package-compute-statistics t
- debug-on-error t
+ ;; debug-on-error t
  )
 
 ;; little hack to fix an error in the init file:
