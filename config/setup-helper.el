@@ -6,6 +6,15 @@
 
 ;;; Code:
 
+;; ------------------- Curser Movement -------------------
+
+(global-set-key (kbd "C-f") 'forward-paragraph)
+(global-set-key (kbd "C-b") 'backward-paragraph)
+(global-set-key (kbd "s-f") 'forward-sexp)
+(global-set-key (kbd "s-b") 'backward-sexp)
+
+;; ------------------- Duplicate line or region -------------------
+
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
 If there's no region, the current line will be duplicated."
@@ -64,6 +73,10 @@ If no START and END is provided, the current 'region-beginning' and
         (forward-char -1))
       (duplicate-region num (point-at-bol) (1+ (point-at-eol))))))
 
+(global-set-key (kbd "M-t") 'duplicate-current-line-or-region)
+
+;; ------------------- Comment or Uncomment current line or region -------------------
+
 ;; comment current line
 ;;http://stackoverflow.com/questions/9688748/emacs-comment-uncomment-current-line
 (defun comment-or-uncomment-region-or-line ()
@@ -71,12 +84,15 @@ If no START and END is provided, the current 'region-beginning' and
   (interactive)
   (let (beg end)
     (if (region-active-p)
-        (setq beg (region-beginning) end (region-end))
+        (setq beg (region-beginning) end (line-end-position))
       (setq beg (line-beginning-position) end (line-end-position))
       )
     (comment-or-uncomment-region beg end)
-    (forward-line)))
+    ))
 
+(global-set-key (kbd "C-t") 'comment-or-uncomment-region-or-line)
+
+;; ------------------- Copy line or region -------------------
 
 ;; copy region if active
 ;; otherwise copy to end of current line
@@ -100,8 +116,8 @@ If no START and END is provided, the current 'region-beginning' and
   "Copy to end of line, or ARG many lines as prefix argument."
   (interactive "P")
   (if (null arg)
-      ;; (copy-to-end-of-line)
-      (copy-whole-lines (prefix-numeric-value 1))
+      ;; (copy-to-end-of-line) ;; I don't like this, better always copy whole line
+    (copy-whole-lines (prefix-numeric-value 1))
    (copy-whole-lines (prefix-numeric-value arg))))
 
 (defun save-region-or-current-line (arg)
@@ -111,10 +127,20 @@ If no START and END is provided, the current 'region-beginning' and
       (kill-ring-save (region-beginning) (region-end))
     (copy-line arg)))
 
+;; https://github.com/magnars/.emacs.d/blob/master/settings/key-bindings.el
+;; Use M-w for copy-line if no active region
+(global-set-key (kbd "M-w") 'save-region-or-current-line)
+
+;; ------------------- Join current line with next line -------------------
+
+(global-set-key (kbd "C-j")
+            (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
+;; ------------------- Show / Hide nested code -------------------
 
 ;; improve selective display, F5 toggles based on cursor
-;; (global-set-key "\C-x$" 'set-selective-display-dlw)
-(global-set-key (kbd "<f5>") 'set-selective-display-dlw)
 
 (defun set-selective-display-dlw (&optional level)
 "Fold text indented same of more than the cursor.
@@ -127,24 +153,8 @@ F5 again will unset selective buffer by setting it to 0."
       (set-selective-display 0)
     (set-selective-display (or level (1+ (current-column))))))
 
-
-;; key bindings
-;; https://github.com/magnars/.emacs.d/blob/master/settings/key-bindings.el
-;; Use M-w for copy-line if no active region
-(global-set-key (kbd "M-w") 'save-region-or-current-line)
-;;(global-set-key (kbd "s-w") 'save-region-or-current-line)
-
-;; Comment/uncomment block
-(global-set-key (kbd "C-c c") 'comment-or-uncomment-region-or-line)
-
-;; Duplicate region
-(global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
-
-;; personal movement improvements
-(global-set-key (kbd "C-f") 'forward-paragraph)
-(global-set-key (kbd "C-b") 'backward-paragraph)
-(global-set-key (kbd "s-f") 'forward-sexp)
-(global-set-key (kbd "s-b") 'backward-sexp)
+;; (global-set-key "\C-x$" 'set-selective-display-dlw)
+(global-set-key (kbd "<f5>") 'set-selective-display-dlw)
 
 (provide 'setup-helper)
 ;;; setup-helper.el ends here
