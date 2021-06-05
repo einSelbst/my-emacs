@@ -247,16 +247,6 @@
   ;; :defer t
   )
 
-;; https://github.com/madintist/emacs-config/blob/e21d3b2127c6946bbc9835728e264b88083bd55b/.emacs.d/config/packages/prettier.el
-(use-package prettier-js
-  ;; :defer t
-  :init
-  (if (string= (getenv "EMACS_ENV") "personal")
-      (setq prettier-js-command "prettier")
-    (setq prettier-js-command "prettier-standard"))
-  (add-hook 'js2-mode-hook 'prettier-js-mode))
-
-
 ;; http://ergoemacs.org/emacs/xah-html-mode.html
 (use-package xah-html-mode
   :straight (xah-html-mode :host github :repo "xahlee/xah-html-mode.el"))
@@ -307,15 +297,11 @@
 
 ;;;; some adventures
 
-;; https://github.com/jscheid/prettier.el
-(use-package prettier)
-;; (use-package prettier
-  ;; :straight ( :build (("npm" "install" "--frozen-lockfile") ("make"))
-              ;; :files (:defaults "*.js" "*.base64" "prettier-pkg.el" "example-file"))
-  ;;etc
-  ;; )
-;; (use-package iter2)
-;; (use-package nvm)
+;; the fancy version of using prettier
+(use-package apheleia
+  :hook ((web-mode js-mode scss-mode) . setup-format-buffer-apheleia)
+  :config
+  (apheleia-global-mode +1))
 
 ;; no official emacs support from kite, just see if it still works
 ;;(load-file "~/.emacs.d/kite.el")
