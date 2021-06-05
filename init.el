@@ -303,6 +303,11 @@
   :config
   (apheleia-global-mode +1))
 
+;; https://github.com/purcell/emacs-shfmt/
+(use-package shfmt
+  :hook (sh-mode . shfmt-on-save-mode)
+  :custom (shfmt-arguments '("-i" "4")))
+
 ;; no official emacs support from kite, just see if it still works
 ;;(load-file "~/.emacs.d/kite.el")
 
