@@ -128,6 +128,21 @@
 
 (require 'setup-package-loading)
 
+;; ----------- GCMH - the Garbage Collector Magic Hack --------
+;; https://github.com/emacsmirror/gcmh
+;; http://akrl.sdf.org/
+;; not sure if this conflicts with my other settings for gc
+(setq garbage-collection-messages t)
+(use-package gcmh
+  :config
+  (gcmh-mode 1)
+  :custom
+  (gcmh-verbose t)
+  ;; (gcmh-lows-cons-threshold #x800000)
+  (gcmh-high-cons-threshold #x40000000) ; 1GB
+  (gcmh-idle-delay 15)
+  )
+
 ;; Use same paths as user environment on macOS
 (use-package exec-path-from-shell
   ;; :if (memq window-system '(mac ns))
