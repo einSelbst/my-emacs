@@ -319,9 +319,10 @@
 
 ;; no official emacs support from kite, just see if it still works
 ;;(load-file "~/.emacs.d/kite.el")
-(use-package kite
-  :load-path "site-lisp/"
-  )
+
+;; (use-package kite
+;;   :load-path "site-lisp/"
+;;   )
 
 
 (provide 'init)
