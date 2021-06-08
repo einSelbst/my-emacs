@@ -88,6 +88,7 @@ If no START and END is provided, the current 'region-beginning' and
       (setq beg (line-beginning-position) end (line-end-position))
       )
     (comment-or-uncomment-region beg end)
+    (forward-line 1)
     ))
 
 (global-set-key (kbd "C-t") 'comment-or-uncomment-region-or-line)
