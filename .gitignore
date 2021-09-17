@@ -6,6 +6,7 @@
 
 # Backup files
 *~
+/#!*.*#
 
 # Undo-tree save-files
 *.~undo-tree
@@ -28,3 +29,6 @@ smex-items
 .cache/treemacs-persist
 semanticdb/
 transient/
+.DS_Store
+
+
