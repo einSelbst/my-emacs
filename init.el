@@ -299,6 +299,11 @@
 
 ;; the fancy version of using prettier
 (use-package apheleia
+  :straight '(apheleia :host github :repo "raxod502/apheleia")
+  ;; not really sure what that 'setup-format-buffer-apheleia' is doing
+  :init
+  (defun setup-format-buffer-apheleia()
+    (setq-local format-buffer-fn 'apheleia-format-buffer))
   :hook ((web-mode js-mode scss-mode) . setup-format-buffer-apheleia)
   :config
   (apheleia-global-mode +1))
