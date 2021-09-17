@@ -54,8 +54,27 @@
         lsp-modeline-code-actions-mode t
         lsp-headerline-breadcrumb-mode t
         ;; auto restart lsp
-        lsp-restart 'auto-restart)
+        lsp-restart 'auto-restart
+        ;; logging, if any of them is set to true can cause a performance hit
+        lsp-log-io nil
+        lsp-eslint-trace-server nil
+        lsp-diagnostics-mode nil
+        )
   ;; (setq lsp-prefer-flymake nil)
+
+  ;; see https://github.com/emacs-lsp/lsp-mode/wiki/LSP-ESlint-integration
+  (setq lsp-eslint-server-command 
+        '("node" 
+          "/home/USER/.vscode/extensions/dbaeumer.vscode-eslint-2.1.23/server/out/eslintServer.js" 
+          "--stdio"))
+
+  ;; disable filewatchers, see https://emacs-lsp.github.io/lsp-mode/page/file-watchers/
+  (let ((patterns '("[/\\\\]\\.next\\'"
+                    "[/\\\\]\\node_modules\\'"
+                    "[/\\\\]\\node_modules\\'"
+                    "[/\\\\]\\coverage\\'")))
+    (dolist (p patterns)
+      (add-to-list 'lsp-file-watch-ignored-directories p)))
   )
 
 ;; lsp-ui: This contains all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
