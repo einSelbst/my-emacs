@@ -210,17 +210,12 @@
   :config
   (which-key-mode))
 
-
-;; (use-package yasnippet
-;;   :config
-;; ;;  (use-package yasnippet-snippets)
-;;   (yas-reload-all))
-
 (use-package yasnippet
   :diminish yas-minor-mode
   :hook (after-init . yas-global-mode)
-  :config (use-package yasnippet-snippets))
-
+  :config (use-package yasnippet-snippets)
+  ; (yas-reload-all)
+  )
 
 (require 'init-lsp)
 (require 'setup-git)  ;; includes magit
@@ -243,9 +238,7 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
-(use-package json-mode
-  ;; :defer t
-  )
+(use-package json-mode)
 
 ;; http://ergoemacs.org/emacs/xah-html-mode.html
 (use-package xah-html-mode
@@ -256,13 +249,9 @@
 (use-package htmlize)
 
 
-(use-package terraform-mode
-  ;; :defer t
-  )
+(use-package terraform-mode)
 
-(use-package yaml-mode
-  ;; :defer t
-  )
+(use-package yaml-mode)
 
 (use-package web-mode
   ;; :disabled
@@ -281,9 +270,8 @@
 ;; silence warning about package cl deprecated
 ;; https://github.com/kiwanami/emacs-epc/issues/35
 (setq byte-compile-warnings '(cl-functions))
-;; (use-package emmet-mode)
+
 (use-package emmet-mode
-  ;; :defer t
   :hook (css-mode scss-mode js-mode sgml-mode web-mode html-mode haml-mode nxml-mode rjsx-mode)
   :custom
   (emmet-expand-jsx-className? t)
