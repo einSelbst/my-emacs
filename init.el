@@ -248,11 +248,12 @@
   )
 
 ;; http://ergoemacs.org/emacs/xah-html-mode.html
-(use-package xah-html-mode
-  :straight (xah-html-mode :host github :repo "xahlee/xah-html-mode.el"))
-(use-package xah-replace-pairs)
-(use-package xah-get-thing)
-(use-package xah-css-mode)
+;; must buy these now
+;; (use-package xah-html-mode
+  ;; :straight (xah-html-mode :host github :repo "xahlee/xah-html-mode.el"))
+;; (use-package xah-replace-pairs)
+;; (use-package xah-get-thing)
+;; (use-package xah-css-mode)
 (use-package htmlize)
 
 
