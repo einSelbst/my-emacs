@@ -32,3 +32,5 @@ transient/
 .DS_Store
 
 
+.emacs.desktop
+.emacs.desktop.lock
