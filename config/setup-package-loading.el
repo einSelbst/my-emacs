@@ -27,6 +27,10 @@
 ;; Cannot open load file: No such file or directory, /Users/einselbst/.emacs.d/straight/repos/straight.el/straight.elc
 (setq user-emacs-directory "~/emacs-profiles/my-emacs/")
 
+;; I have an issue with an unavailable package and straight says:
+;; "error: Could not find package gitconfig-mode. Updating recipe repositories: (org-elpa melpa gnu-elpa-mirror el-get emacsmirror-mirror) with ‘straight-pull-recipe-repositories’ may fix this"
+;; (setq straight-recipe-repositories '(org-elpa melpa gnu-elpa-mirror el-get emacsmirror-mirror straight-pull-recipe-repositories))
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))

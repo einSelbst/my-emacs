@@ -47,12 +47,8 @@
   :bind (:map vc-prefix-map
               ("t" . git-timemachine)))
 
-(use-package gitconfig-mode
+(use-package git-modes
   :defer)
-
-(use-package gitignore-mode
-  :defer t)
-
 
 (provide 'setup-git)
 ;;; setup-git.el ends here
