@@ -208,7 +208,7 @@
 
 (use-package which-key
   :config
-  (which-key-mode))
+  (which-key-mode 1))
 
 (use-package yasnippet
   :diminish yas-minor-mode
@@ -248,8 +248,8 @@
 ;; (use-package xah-replace-pairs)
 ;; (use-package xah-get-thing)
 ;; (use-package xah-css-mode)
-(use-package htmlize)
 
+(use-package htmlize)
 
 (use-package terraform-mode)
 
@@ -260,8 +260,7 @@
   :mode (("\\.html?\\'" . web-mode)
          ("\\.css\\'"   . web-mode)
          ("\\.jsx?\\'"  . web-mode)
-         ("\\.tsx?\\'"  . web-mode)
-         ("\\.json\\'"  . web-mode))
+         ("\\.tsx?\\'"  . web-mode))
   :config
   ;; (setq web-mode-markup-indent-offset ian/indent-width)
   ;; (setq web-mode-code-indent-offset ian/indent-width)
