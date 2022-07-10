@@ -14,11 +14,13 @@
   ;;:defer nil
 ;  :hook
 ;;  (after-init . desktop-read)
-  ;; :config
-  ;; (setq desktop-dirname "~/.emacs.d"
+  :config
+  (setq desktop-dirname "~/.emacs.d")
   ;;       desktop-base-file-name "desktop"
   ;;       desktop-base-lock-name "desktop.lock"
   ;;       desktop-restore-frames t
+  ;; (setq desktop-path `(,(emacsd "cache/default-desktop/")))
+  (setq desktop-load-locked-desktop t)
   ;;       desktop-restore-reuses-frames t
   ;;       desktop-restore-in-current-display t
   ;;       desktop-restore-forces-onscreen t)
@@ -29,6 +31,10 @@
   :init
   (desktop-save-mode)
 ;;  (add-to-list 'desktop-globals-to-save 'golden-ratio-adjust-factor)
+  )
+
+(if (daemonp)
+    (add-hook 'server-after-make-frame-hook 'desktop-save-mode 'desktop-read)
   )
 
 ;; save history
