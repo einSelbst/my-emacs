@@ -226,6 +226,7 @@
   :custom
   (flycheck-display-errors-delay .3)
   (flycheck-emacs-lisp-load-path 'inherit)
+  (flycheck-javascript-eslint-executable "eslint_d")
   ;;(flycheck-stylelintrc "~/.stylelintrc.json")
   )
 
@@ -267,6 +268,14 @@
   ;; (setq web-mode-css-indent-offset ian/indent-width)
   (setq web-mode-content-types-alist '(("tsx" . "\\.ts[x]?\\'")))
   (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
+
+;; Minor-mode to automatically fix javascript with eslint_d.
+;; https://github.com/aaronjensen/eslintd-fix
+(use-package eslintd-fix
+  :config
+  (add-hook 'web-mode-hook 'eslintd-fix-mode)
+  (add-hook 'js2-mode-hook 'eslintd-fix-mode)
+  (add-hook 'typescript-mode 'eslintd-fix-mode))
 
 ;; silence warning about package cl deprecated
 ;; https://github.com/kiwanami/emacs-epc/issues/35
