@@ -16,9 +16,13 @@ places
 history
 savehist
 recentf
+.emacs.desktop
+.emacs.desktop.lock
+.dap-breakpoints
 
 # package manager straight.el folder
 straight/
+elpa/
 
 # lsp
 .lsp-session-v*
@@ -31,6 +35,3 @@ semanticdb/
 transient/
 .DS_Store
 
-
-.emacs.desktop
-.emacs.desktop.lock
