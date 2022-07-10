@@ -15,6 +15,28 @@ so this is what I start with.
 
 I'm on OSX and there are [a few options](https://www.emacswiki.org/emacs/EmacsForMacOS#toc12) to get emacs. I'm only interested in homebrew based installs and so I have installed some of the following, but I don't have a clear preference yet. For better distinction different icons can be used.
 
+I want to use deamon mode like this:
+
+```shell
+brew tap daviderestivo/emacs-head
+brew install emacs-head@28 --with-cocoa --with-native-comp --with-modern-icon-elrumo2
+ln -s /usr/local/opt/emacs-head@28/Emacs.app /Applications
+```
+
+Start deamon
+
+```shell
+emacs --with-profile einselbst --daemon
+```
+
+Start client
+
+```shell
+emacsclient -c -s einselbst
+```
+
+but then my desktop save/restore is not working and since my emacs is pretty quick anyway I rather not use deamon mode.
+
 ### Emacs 
 
 Default homebrew installation.
@@ -94,7 +116,6 @@ brew tap railwaycat/emacsmacport
 brew cask install emacs-mac
 ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs-Mac.app
 ```
-
 
 ## Emacs Profile Switcher
 
