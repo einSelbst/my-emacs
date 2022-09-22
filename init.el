@@ -254,6 +254,8 @@
 
 (use-package htmlize)
 
+(use-package dockerfile-mode)
+
 (use-package terraform-mode)
 
 (use-package yaml-mode)
