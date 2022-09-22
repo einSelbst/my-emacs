@@ -271,7 +271,8 @@
   ;; (setq web-mode-code-indent-offset ian/indent-width)
   ;; (setq web-mode-css-indent-offset ian/indent-width)
   (setq web-mode-content-types-alist '(("tsx" . "\\.ts[x]?\\'")))
-  (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
+  (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+  (setq lsp-enable-indentation nil)) ;; fix broken indentation in web-mode
 
 ;; Minor-mode to automatically fix javascript with eslint_d.
 ;; https://github.com/aaronjensen/eslintd-fix
