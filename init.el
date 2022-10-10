@@ -168,10 +168,7 @@
   )
 
 ;; saving files and state
-;; (require 'init-persistency)
-(require 'init-siren-desktop)
-(require 'setup-siren-tab-bar)
-
+(require 'init-persistency)
 
 ;; https://zzamboni.org/post/my-emacs-configuration-with-commentary/
 (use-package midnight
