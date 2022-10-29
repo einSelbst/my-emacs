@@ -30,6 +30,7 @@ elpa/
 
 # other
 smex-items
+eln-cache/
 .cache/treemacs-persist
 semanticdb/
 transient/
@@ -37,3 +38,4 @@ transient/
 
 projectile-bookmarks.eld
 projects
+
