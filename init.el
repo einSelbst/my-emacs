@@ -231,7 +231,6 @@
   )
 
 (require 'setup-ui)
-(require 'setup-multiple-cursors)
 (require 'setup-wakatime)
 
 (use-package markdown-mode
