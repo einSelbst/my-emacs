@@ -135,7 +135,7 @@
 (setq garbage-collection-messages t)
 (use-package gcmh
   :config
-  (gcmh-mode 1)
+  (gcmh-mode t)
   :custom
   (gcmh-verbose t)
   ;; (gcmh-lows-cons-threshold #x800000)
@@ -163,9 +163,8 @@
 
 (use-package async
   :init
-  (dired-async-mode
-   async-bytecomp-package-mode)
-  )
+  (dired-async-mode t)
+  (async-bytecomp-package-mode t))
 
 ;; saving files and state
 (require 'init-persistency)
@@ -175,7 +174,7 @@
   :defer 3
   :config
   (setq midnight-period 7200)
-  (midnight-mode 1))
+  (midnight-mode t))
 
 ;;; Byte-compilation
 (setq load-prefer-newer t)
@@ -184,7 +183,7 @@
 
 (use-package editorconfig
   :custom
-  (editorconfig-mode 1))
+  (editorconfig-mode t))
 
 ;; Make windmove work in Org mode: (untested but left here)
 (use-package org
@@ -208,7 +207,7 @@
 
 (use-package which-key
   :config
-  (which-key-mode 1))
+  (which-key-mode t))
 
 (use-package yasnippet
   :diminish yas-minor-mode
@@ -295,6 +294,11 @@
 ;;     ;; (add-hook 'emmet-mode-hook #'yas-minor-mode-on))
   )
 
+
+(use-package graphql-mode)
+(use-package graphql)
+
+
 ;;;; some adventures
 
 ;; the fancy version of using prettier
@@ -306,7 +310,7 @@
     (setq-local format-buffer-fn 'apheleia-format-buffer))
   :hook ((web-mode js-mode scss-mode) . setup-format-buffer-apheleia)
   :config
-  (apheleia-global-mode +1))
+  (apheleia-global-mode t))
 
 ;; https://github.com/purcell/emacs-shfmt/
 (use-package shfmt

@@ -8,6 +8,7 @@
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    '("745d03d647c4b118f671c49214420639cb3af7152e81f132478ed1c649d4597d" "4699e3a86b1863bbc695236036158d175a81f0f3ea504e2b7c71f8f7025e19e3" "c086fe46209696a2d01752c0216ed72fd6faeabaaaa40db9fc1518abebaf700d" "846ef3695c42d50347884515f98cc359a7a61b82a8d0c168df0f688cf54bf089" default))
+ '(ede-project-directories '("/Users/einselbst/Code/overnext"))
  '(global-display-line-numbers-mode t)
  '(ns-alternate-modifier 'meta)
  '(ns-command-modifier 'super)
@@ -15,7 +16,8 @@
  '(save-place-mode t)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
- '(wakatime-python-bin nil))
+ '(wakatime-python-bin nil)
+ '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

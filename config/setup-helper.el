@@ -134,7 +134,7 @@ If no START and END is provided, the current 'region-beginning' and
 
 ;; ------------------- Join current line with next line -------------------
 
-(global-set-key (kbd "C-j")
+(global-set-key (kbd "M-j")
             (lambda ()
                   (interactive)
                   (join-line -1)))
@@ -156,6 +156,9 @@ F5 again will unset selective buffer by setting it to 0."
 
 ;; (global-set-key "\C-x$" 'set-selective-display-dlw)
 (global-set-key (kbd "<f5>") 'set-selective-display-dlw)
+
+;; Macro recording
+;; just use F3 to start recording, F4 to stop recording and F4 again to apply
 
 (provide 'setup-helper)
 ;;; setup-helper.el ends here
