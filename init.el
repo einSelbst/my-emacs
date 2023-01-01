@@ -103,12 +103,15 @@
 ;; https://github.com/plexus/.emacs.d/blob/master/init.d/setup-emacs.el
 ;; Save all backup file in this directory
 ;; Write backup files to own directory
+(defvar --backup-directory (concat user-emacs-directory "backups"))
+(if (not (file-exists-p --backup-directory))
+        (make-directory --backup-directory t))
 (setq backup-directory-alist
-      `(("." . ,(expand-file-name
-                 (concat user-emacs-directory "backups")))))
+      `(("." . ,--backup-directory)))
 
 (setq backup-by-copying t      ; don't clobber symlinks
       delete-old-versions t
+      delete-by-moving-to-trash t
       kept-new-versions 6
       kept-old-versions 2
       version-control t)       ; use versioned backups
@@ -124,7 +127,7 @@
       delete-auto-save-files t
       create-lockfiles nil
       auto-save-file-name-transforms
-      `((".*" ,(expand-file-name (concat user-emacs-directory "autosave")) t)))
+      `((".*" ,--backup-directory t)))
 
 (require 'setup-package-loading)
 
