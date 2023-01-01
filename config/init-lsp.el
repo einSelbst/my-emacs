@@ -43,6 +43,14 @@
   :config
  ;; (require 'lsp-clients)
 
+;; fix wrong indentation in web-mode
+;; @see https://github.com/emacs-lsp/lsp-mode/issues/2915
+;; @see https://github.com/emacs-lsp/lsp-mode/discussions/3308
+;; this is just a workaround
+  (setf (alist-get 'web-mode lsp--formatting-indent-alist) 'web-mode-code-indent-offset)
+;; (after! lsp-mode
+        ;; (add-to-list 'lsp--formatting-indent-alist '(typescript-tsx-mode . typescript-indent-level)))
+
   (setq lsp-auto-guess-root t ; Detect project root
         lsp-keep-workspace-alive t ; Auto-kill LSP server
         ;; lsp-prefer-capf t
